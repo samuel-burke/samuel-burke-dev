@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
       {/* Search and theme sit top right, level with the logo, on every width. */}
-      <div className="absolute right-5 top-14 flex h-12 items-center gap-6 lg:right-12 lg:top-[72px]">
+      <div className="absolute right-5 top-14 flex h-12 items-center gap-2 lg:right-12 lg:top-[72px]">
         <CommandMenu />
         <ThemeToggle />
       </div>

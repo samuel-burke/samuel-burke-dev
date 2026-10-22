@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { Search } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { site } from "@/lib/site";
@@ -44,10 +45,11 @@ export function CommandMenu() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        className="group flex items-baseline gap-2 text-[15px] text-muted-foreground transition-colors duration-[120ms] hover:text-foreground"
+        aria-label="Search"
+        title="Search (⌘K)"
+        className="flex size-9 items-center justify-center rounded-ui border border-border text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground"
       >
-        Search
-        <kbd className="hidden font-mono text-xs sm:inline">⌘K</kbd>
+        <Search aria-hidden className="size-4" />
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>

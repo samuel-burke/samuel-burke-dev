@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -17,10 +18,10 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(dark ? "light" : "dark")}
-      aria-pressed={!dark}
-      className="text-[15px] text-muted-foreground transition-colors duration-[120ms] hover:text-foreground"
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      className="flex size-9 items-center justify-center rounded-ui border border-border text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground"
     >
-      {dark ? "Light" : "Dark"}
+      {dark ? <Sun aria-hidden className="size-4" /> : <Moon aria-hidden className="size-4" />}
     </button>
   );
 }
