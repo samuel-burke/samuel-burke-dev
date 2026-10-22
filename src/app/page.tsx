@@ -38,9 +38,15 @@ function SectionHeading({ id, children }: { id: string; children: React.ReactNod
 
 export default function Home() {
   return (
-    <div className="mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
+    <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
+      {/* Search and theme sit top right, level with the logo, on every width. */}
+      <div className="absolute right-5 top-14 flex h-12 items-center gap-2 lg:right-12 lg:top-[72px]">
+        <CommandMenu />
+        <ThemeToggle />
+      </div>
+
       <header className="flex flex-col pb-8 pt-14 lg:sticky lg:top-0 lg:col-span-5 lg:h-screen lg:pb-12 lg:pt-[72px]">
-        <LogoMark className="mb-8 size-12" />
+        <LogoMark className="mb-8 h-12 w-auto self-start" />
         <h1 className="mb-4 font-display text-[clamp(3rem,7vw,5.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] text-balance">
           {site.name}
         </h1>
@@ -53,14 +59,10 @@ export default function Home() {
           <a href={site.github}>GitHub</a>
           <a href={site.linkedin}>LinkedIn</a>
         </p>
-        <div className="mt-6 flex flex-wrap gap-2 lg:mt-auto">
-          <CommandMenu />
-          <ThemeToggle />
-        </div>
       </header>
 
       <main className="min-w-0 pb-12 lg:col-span-7">
-        <section aria-labelledby="about-h" id="about" className="scroll-mt-8 pt-16 lg:pt-[72px]">
+        <section aria-labelledby="about-h" id="about" className="scroll-mt-8 pt-16 lg:pt-[164px]">
           <SectionHeading id="about-h">About</SectionHeading>
           <div className="max-w-[62ch] space-y-4">
             <p>

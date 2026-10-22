@@ -167,7 +167,7 @@ export default function ShiftViewCaseStudy() {
       <header className="flex items-center justify-between gap-4 py-6">
         <div className="flex items-center gap-5">
           <a href={base} aria-label="Samuel Burke, home" className="no-underline">
-            <LogoMark className="size-8" />
+            <LogoMark className="h-8 w-auto" />
           </a>
           <a href={`${base}#work`} className="text-[15px]">
             ← All work

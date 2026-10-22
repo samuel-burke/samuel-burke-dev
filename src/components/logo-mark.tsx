@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { B_PATH, TILE_PATH } from "@/components/logo-paths";
+import { B_PATH } from "@/components/logo-paths";
 import { cn } from "@/lib/utils";
 
-// The signature moment: the B cuts out of the tile once per session, and again on hover.
+// The signature moment: the B draws in once per session, and again on hover.
 export function LogoMark({ className }: { className?: string }) {
   const [run, setRun] = useState(0);
 
@@ -19,18 +19,17 @@ export function LogoMark({ className }: { className?: string }) {
 
   return (
     <svg
-      viewBox="0 0 512 512"
+      viewBox="150.3 112 216.4 288"
       role="img"
       aria-label="Samuel Burke"
       className={cn("block", className)}
       onMouseEnter={() => setRun((n) => n + 1)}
     >
-      <path d={TILE_PATH} className="fill-logo-tile" />
       <path
         key={run}
         d={B_PATH}
         fillRule="evenodd"
-        className={cn("fill-logo-letter", run > 0 && "animate-[logo-cut_700ms_var(--ease)_both]")}
+        className={cn("fill-foreground", run > 0 && "animate-[logo-cut_700ms_var(--ease)_both]")}
       />
     </svg>
   );

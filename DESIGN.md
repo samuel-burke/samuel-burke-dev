@@ -6,7 +6,7 @@ Source of truth for the reasoning: [design plan](https://claude.ai/artifact/K45k
 
 ## Direction
 
-**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the B cuts out of the logo tile. It should look decided, not generated.
+**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the B logo draws in. It should look decided, not generated.
 
 1. **Content leads.** Projects and words carry the page; decoration earns its place or goes.
 2. **One voice.** One palette, one radius, one motion curve, everywhere.
@@ -39,7 +39,6 @@ Burke Night, monochrome (chosen by Samuel, Oct 22; the touch of blue was removed
 | `muted-foreground` | #A7B1C6 | #475569 | Dates, meta, captions |
 | `border` | #2A3658 | #C7D0E0 | Hairlines, screenshot frames |
 | `accent` | = `foreground` | = `foreground` | Links, the active nav item, focus ring, selection |
-| `logo-tile` / `logo-letter` | = `foreground` / `background` | same | The logo mark; flips with the theme |
 | `destructive` | #F0857C | #B4261E | Form errors only |
 
 All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-code a hex in a component.
@@ -53,16 +52,16 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 
 - 4px base. Use Tailwind's default steps.
 - Desktop (≥1024px): 12 columns, max width 1200px, 48px gutter. Left column (5) is sticky and holds the intro; right column (7) scrolls.
-- Below 1024px everything stacks: intro, about, work, experience, contact.
+- Search (⌘K) and the theme toggle sit top right, level with the logo, at every width. Below 1024px everything else stacks: intro, about, work, experience, contact.
 - Sections are separated by space (96px), not boxes or rules.
-- One radius: `rounded-ui` (6px). Only the logo tile has its own shape.
+- One radius: `rounded-ui` (6px).
 - No elevation. Separate with a border or `surface`.
 
 ## Components
 
 | Component | File | Notes |
 | --- | --- | --- |
-| `LogoMark` | `components/logo-mark.tsx` | The signature moment (see Motion) |
+| `LogoMark` | `components/logo-mark.tsx` | The B on its own, no tile, in `foreground`. The signature moment (see Motion) |
 | `SectionNav` | `components/section-nav.tsx` | Active section gets a 28px rule before the label |
 | `CommandMenu` | `components/command-menu.tsx` | ⌘K / Ctrl+K / `/`. Navigate and Actions groups |
 | `ThemeToggle` | `components/theme-toggle.tsx` | Text button, mono |
@@ -81,7 +80,7 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 | base | 200ms | Palette open, nav marker |
 | slow | 700ms | The logo moment only |
 
-**The signature moment.** On the first visit of a session the B cuts out of the logo tile over 700ms (`logo-cut` keyframes, clip-path). It replays on hover, never blocks content, and is skipped under `prefers-reduced-motion`.
+**The signature moment.** On the first visit of a session the B draws in from left to right over 700ms (`logo-cut` keyframes, clip-path). It replays on hover, never blocks content, and is skipped under `prefers-reduced-motion`.
 
 Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, loaders, custom cursors, anything that loops on the home page.
 

@@ -11,8 +11,6 @@
   --muted-foreground: #475569;
   --border: #C7D0E0;
   --accent: var(--foreground);
-  --logo-tile: var(--foreground);
-  --logo-letter: var(--background);
   --ring: var(--foreground);
   --destructive: #B4261E;
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -25,8 +23,6 @@
   --muted-foreground: #A7B1C6;
   --border: #2A3658;
   --accent: var(--foreground);
-  --logo-tile: var(--foreground);
-  --logo-letter: var(--background);
   --ring: var(--foreground);
   --destructive: #F0857C;
   color-scheme: dark;
@@ -39,8 +35,6 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-accent: var(--accent);
-  --color-logo-tile: var(--logo-tile);
-  --color-logo-letter: var(--logo-letter);
   --color-ring: var(--ring);
   --color-destructive: var(--destructive);
   --radius-ui: var(--radius);
