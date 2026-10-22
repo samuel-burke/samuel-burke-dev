@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Design tokens: Burke Night with a touch of blue. The source of truth is DESIGN.md; change them there first. */
+/* Design tokens: Burke Night, monochrome. The source of truth is DESIGN.md; change them there first. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
@@ -10,10 +10,10 @@
   --surface: #E8ECF4;
   --muted-foreground: #475569;
   --border: #C7D0E0;
-  --accent: #2B50E8;
-  --logo-tile: #2B50E8;
-  --logo-letter: #FFFFFF;
-  --ring: #2B50E8;
+  --accent: var(--foreground);
+  --logo-tile: var(--foreground);
+  --logo-letter: var(--background);
+  --ring: var(--foreground);
   --destructive: #B4261E;
   --ease: cubic-bezier(0.2, 0, 0, 1);
 }
@@ -24,8 +24,10 @@
   --surface: #1A2440;
   --muted-foreground: #A7B1C6;
   --border: #2A3658;
-  --accent: #8FA6F5;
-  --ring: #8FA6F5;
+  --accent: var(--foreground);
+  --logo-tile: var(--foreground);
+  --logo-letter: var(--background);
+  --ring: var(--foreground);
   --destructive: #F0857C;
   color-scheme: dark;
 }
