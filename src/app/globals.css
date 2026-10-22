@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Design tokens. The source of truth is DESIGN.md; change them there first. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --radius: 6px;
+  --background: #F7F6F3;
+  --foreground: #141413;
+  --surface: #EFEDE8;
+  --muted-foreground: #66645F;
+  --border: #C9C6BE;
+  --ring: #141413;
+  --destructive: #B4261E;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dark {
+  --background: #121211;
+  --foreground: #EDECE8;
+  --surface: #1C1B1A;
+  --muted-foreground: #9A9893;
+  --border: #3A3936;
+  --ring: #EDECE8;
+  --destructive: #F0857C;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --radius-ui: var(--radius);
+  --font-display: var(--font-schibsted), "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  --ease-site: var(--ease);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@layer base {
+  a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-thickness 120ms var(--ease);
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+@keyframes logo-cut {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+@keyframes palette-in {
+  from { opacity: 0; transform: translate(-50%, 4px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
