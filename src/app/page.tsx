@@ -27,6 +27,28 @@ function Shot({ name, alt, width, height }: { name: string; alt: string; width: 
   );
 }
 
+const experience: { when: string; title: React.ReactNode; body: string }[] = [
+  {
+    when: "2026 – now",
+    title: (
+      <>
+        Founder · <a href="https://burke.systems">Burke Systems</a>
+      </>
+    ),
+    body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
+  },
+  {
+    when: "Internship",
+    title: "QA engineering intern · ZenGRC",
+    body: "Wrote end-to-end tests for the QA team on ZenGRC, a governance, risk and compliance platform.",
+  },
+  {
+    when: "Education",
+    title: "B.S. Computer Science · NC State University",
+    body: "North Carolina State University, Raleigh.",
+  },
+];
+
 function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <h2 id={id} className="mb-6 text-[15px] font-semibold text-muted-foreground">
@@ -165,18 +187,17 @@ export default function Home() {
 
         <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">
           <SectionHeading id="exp-h">Experience</SectionHeading>
-          {/* TODO(samuel): add earlier roles from LinkedIn. */}
-          <div className="grid gap-1 sm:grid-cols-[128px_1fr] sm:gap-4">
-            <span className="font-mono text-[13px] leading-[1.9] text-muted-foreground tabular-nums">2026 – now</span>
-            <div className="max-w-[56ch]">
-              <h3 className="mb-1.5 text-[17px] font-semibold">
-                Founder · <a href="https://burke.systems">Burke Systems</a>
-              </h3>
-              <p className="text-muted-foreground">
-                Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped
-                ShiftView.
-              </p>
-            </div>
+          {/* TODO(samuel): add years for the ZenGRC internship and NC State. */}
+          <div className="space-y-10">
+            {experience.map((item) => (
+              <div key={item.when} className="grid gap-1 sm:grid-cols-[128px_1fr] sm:gap-4">
+                <span className="font-mono text-[13px] leading-[1.9] text-muted-foreground tabular-nums">{item.when}</span>
+                <div className="max-w-[56ch]">
+                  <h3 className="mb-1.5 text-[17px] font-semibold">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
