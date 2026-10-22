@@ -3,29 +3,8 @@ import { CopyEmail } from "@/components/copy-email";
 import { LogoMark } from "@/components/logo-mark";
 import { SectionNav } from "@/components/section-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Shot } from "@/components/shot";
 import { site } from "@/lib/site";
-
-// Theme-aware screenshot: shows the dark capture in dark mode and the light one in light mode.
-function Shot({ name, alt, width, height }: { name: string; alt: string; width: number; height: number }) {
-  return (
-    <>
-      <img
-        src={`work/shiftview/${name}-dark.webp`}
-        alt={alt}
-        width={width}
-        height={height}
-        className="hidden h-auto w-full rounded-ui border border-border dark:block"
-      />
-      <img
-        src={`work/shiftview/${name}-light.webp`}
-        alt={alt}
-        width={width}
-        height={height}
-        className="block h-auto w-full rounded-ui border border-border dark:hidden"
-      />
-    </>
-  );
-}
 
 const experience: { when: string; title: React.ReactNode; body: string }[] = [
   {
@@ -121,22 +100,6 @@ export default function Home() {
               </a>
             </p>
 
-            <dl className="mb-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-5 sm:grid-cols-4">
-              {[
-                ["1,600+", "automated tests"],
-                ["1,020", "commits, solo"],
-                ["2", "layers of access control"],
-                ["7", "platforms, one codebase"],
-              ].map(([value, label]) => (
-                <div key={label} className="flex flex-col">
-                  <dt className="order-2 text-[13px] text-muted-foreground">{label}</dt>
-                  <dd className="order-1 font-display text-[28px] font-extrabold leading-tight tracking-[-0.02em] tabular-nums">
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
             <figure className="mb-10">
               <Shot
                 name="auto-schedule"
@@ -167,9 +130,10 @@ export default function Home() {
                 them up, every row is scoped to its organization, and messages are encrypted with AES-256-GCM.
               </p>
               <p>
-                <strong className="font-semibold">Tested on every change.</strong> More than 1,600 automated tests across
-                1,020 commits: Vitest and Testing Library for units, Playwright end to end, and SQL tests for database
-                behavior. CI runs lint, typecheck, unit, security and end-to-end checks on every push.
+                <strong className="font-semibold">CI/CD on every change.</strong> GitHub Actions runs lint and
+                typecheck, Vitest unit tests (again in two far-off timezones), SQL security suites on a fresh Postgres,
+                and Playwright end to end on five device profiles. Vercel deploys previews per branch and blocks a
+                production deploy that’s missing a secret.
               </p>
             </div>
 
@@ -184,7 +148,7 @@ export default function Home() {
             </figure>
 
             <p className="mt-8">
-              <a href="https://github.com/samuel-burke/shiftview#readme">Read the code and the architecture notes →</a>
+              <a href="work/shiftview/">Read the case study: architecture, security and CI/CD →</a>
             </p>
           </article>
 

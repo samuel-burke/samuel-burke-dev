@@ -21,7 +21,7 @@ Read `DESIGN.md` first. It is the spec: tokens, type, layout, motion and a **Nev
 - Static export only: no server actions, route handlers that read the request, cookies, or `next/image` optimization. If a feature needs a server, stop and ask.
 - Use the theme tokens (`bg-background`, `text-muted-foreground`, `border-border`, `rounded-ui`...). Never hard-code colors.
 - Site facts (name, links, email) live in `src/lib/site.ts`.
-- Asset paths in `public/` are referenced relatively (`work/...`), so the export also works from a subfolder.
+- Asset paths in `public/` are referenced relatively (`img/...`), so the export also works from a subfolder.
 - Copy is first person, plain, specific. No filler words (see DESIGN.md).
 
 ## Quality gates (run before you say you're done)

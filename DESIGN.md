@@ -114,3 +114,17 @@ Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, l
 | Accessibility | WCAG 2.2 AA, zero axe violations, full keyboard path |
 | Weight | Home page under 150KB of JS |
 | Design spec | Nothing from Never do; self-review against this file |
+
+## Case study pages (`/work/<slug>/`)
+
+Built at `src/app/work/shiftview/page.tsx`. Same tokens, type and Never do list as the home page.
+
+1. Top bar: the logo (home), "← All work", the theme toggle.
+2. Title in display type, a one-sentence summary, then a mono meta row: role · status · stack · Live ↗ · Code ↗.
+3. A full-width hero screenshot.
+4. A sticky table of contents on the left from 1024px; the body in a 65ch column.
+5. Sections, in this order: What it does, How it’s built (one architecture diagram plus a stack table), Auth and security, CI/CD and testing, Key decisions, What I’d change.
+6. Lead with what the project does and how it’s built. Don’t lead with vanity numbers (commit counts, line counts); a number belongs only where it explains a decision.
+7. End with Live, Code and contact links.
+
+Pages export as `<path>/index.html` (`trailingSlash: true`), so nested pages reference assets with `../../`.
