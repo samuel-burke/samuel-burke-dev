@@ -29,22 +29,25 @@ All three load through `next/font/google` (`src/app/layout.tsx`) and are exposed
 
 ## Color
 
-Warm monochrome. No accent color anywhere, including the logo. Dark is the default; light is a remembered toggle.
+Burke Night with a touch of blue (chosen by Samuel, Oct 22). The navy family comes from burke.systems so the portfolio reads as kin to the studio, but the layout, type and rules are this site's own. Dark is the default; light is a remembered toggle.
 
 | Token | Dark | Light | Used for |
 | --- | --- | --- | --- |
-| `background` | #121211 | #F7F6F3 | Page |
-| `surface` | #1C1B1A | #EFEDE8 | Palette, hover fills, code |
-| `foreground` | #EDECE8 | #141413 | Text, the logo tile, focus ring |
-| `muted-foreground` | #9A9893 | #66645F | Dates, meta, captions |
-| `border` | #3A3936 | #C9C6BE | Hairlines, screenshot frames |
+| `background` | #0F172A | #F4F6FA | Page |
+| `surface` | #1A2440 | #E8ECF4 | Palette, hover fills, code |
+| `foreground` | #EEF1F7 | #0F172A | Text |
+| `muted-foreground` | #A7B1C6 | #475569 | Dates, meta, captions |
+| `border` | #2A3658 | #C7D0E0 | Hairlines, screenshot frames |
+| `accent` | #8FA6F5 | #2B50E8 | Links, the active nav item, focus ring, selection |
+| `logo-tile` / `logo-letter` | #2B50E8 / #FFFFFF | same | The logo mark only |
 | `destructive` | #F0857C | #B4261E | Form errors only |
 
 All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-code a hex in a component.
 
-- Links are `foreground` with a 1px underline offset 3px; the underline thickens on hover. Never blue.
+- Links are `accent` with a 1px underline offset 3px; the underline thickens on hover.
 - Screenshots get a 1px `border` and the 6px radius. Each has a dark and a light capture that swaps with the theme.
-- Selection is inverted.
+- Selection uses `accent`.
+- Blue is a touch, never a fill: the logo tile is the only blue shape on the page.
 
 ## Space, grid, radius
 
@@ -86,7 +89,7 @@ Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, l
 
 1. No Inter, Roboto, Geist or system-ui as a visible face.
 2. No purple, indigo or violet. No gradients, glows, blurs or glassmorphism.
-3. No colored accent anywhere, including the logo.
+3. No accent beyond `accent` and the logo tile. No blue buttons, bands, cards or backgrounds.
 4. No radius other than 6px on UI, and no pill shapes.
 5. No shadows.
 6. No centered hero with a single CTA, and no row of three icon cards.

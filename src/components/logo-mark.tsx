@@ -25,12 +25,12 @@ export function LogoMark({ className }: { className?: string }) {
       className={cn("block", className)}
       onMouseEnter={() => setRun((n) => n + 1)}
     >
-      <path d={TILE_PATH} className="fill-foreground" />
+      <path d={TILE_PATH} className="fill-logo-tile" />
       <path
         key={run}
         d={B_PATH}
         fillRule="evenodd"
-        className={cn("fill-background", run > 0 && "animate-[logo-cut_700ms_var(--ease)_both]")}
+        className={cn("fill-logo-letter", run > 0 && "animate-[logo-cut_700ms_var(--ease)_both]")}
       />
     </svg>
   );

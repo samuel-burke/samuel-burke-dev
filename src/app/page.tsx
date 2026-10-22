@@ -112,14 +112,30 @@ export default function Home() {
             </p>
             <p className="mb-8 text-[15px] text-muted-foreground">
               Public beta · Next.js 16, React 19, Supabase, TypeScript ·{" "}
-              <a href="https://shiftview.app" className="text-foreground">
+              <a href="https://shiftview.app">
                 Live ↗
               </a>{" "}
               ·{" "}
-              <a href="https://github.com/samuel-burke/shiftview" className="text-foreground">
+              <a href="https://github.com/samuel-burke/shiftview">
                 Code ↗
               </a>
             </p>
+
+            <dl className="mb-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-5 sm:grid-cols-4">
+              {[
+                ["1,600+", "automated tests"],
+                ["1,020", "commits, solo"],
+                ["2", "layers of access control"],
+                ["7", "platforms, one codebase"],
+              ].map(([value, label]) => (
+                <div key={label} className="flex flex-col">
+                  <dt className="order-2 text-[13px] text-muted-foreground">{label}</dt>
+                  <dd className="order-1 font-display text-[28px] font-extrabold leading-tight tracking-[-0.02em] tabular-nums">
+                    {value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
             <figure className="mb-10">
               <Shot

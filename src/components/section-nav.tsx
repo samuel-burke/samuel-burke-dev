@@ -43,7 +43,7 @@ export function SectionNav() {
           aria-current={active === s.id ? "true" : undefined}
           className={cn(
             "group flex items-center text-[15px] no-underline transition-colors duration-[120ms]",
-            active === s.id ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+            active === s.id ? "text-accent" : "text-muted-foreground hover:text-foreground",
           )}
         >
           <span

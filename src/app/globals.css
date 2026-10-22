@@ -1,27 +1,31 @@
 @import "tailwindcss";
 
-/* Design tokens. The source of truth is DESIGN.md; change them there first. */
+/* Design tokens: Burke Night with a touch of blue. The source of truth is DESIGN.md; change them there first. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --radius: 6px;
-  --background: #F7F6F3;
-  --foreground: #141413;
-  --surface: #EFEDE8;
-  --muted-foreground: #66645F;
-  --border: #C9C6BE;
-  --ring: #141413;
+  --background: #F4F6FA;
+  --foreground: #0F172A;
+  --surface: #E8ECF4;
+  --muted-foreground: #475569;
+  --border: #C7D0E0;
+  --accent: #2B50E8;
+  --logo-tile: #2B50E8;
+  --logo-letter: #FFFFFF;
+  --ring: #2B50E8;
   --destructive: #B4261E;
   --ease: cubic-bezier(0.2, 0, 0, 1);
 }
 
 .dark {
-  --background: #121211;
-  --foreground: #EDECE8;
-  --surface: #1C1B1A;
-  --muted-foreground: #9A9893;
-  --border: #3A3936;
-  --ring: #EDECE8;
+  --background: #0F172A;
+  --foreground: #EEF1F7;
+  --surface: #1A2440;
+  --muted-foreground: #A7B1C6;
+  --border: #2A3658;
+  --accent: #8FA6F5;
+  --ring: #8FA6F5;
   --destructive: #F0857C;
   color-scheme: dark;
 }
@@ -32,6 +36,9 @@
   --color-surface: var(--surface);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-logo-tile: var(--logo-tile);
+  --color-logo-letter: var(--logo-letter);
   --color-ring: var(--ring);
   --color-destructive: var(--destructive);
   --radius-ui: var(--radius);
@@ -55,7 +62,7 @@ body {
 }
 
 ::selection {
-  background: var(--foreground);
+  background: var(--accent);
   color: var(--background);
 }
 
@@ -66,6 +73,7 @@ body {
 
 @layer base {
   a {
+    color: var(--accent);
     text-decoration-line: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
