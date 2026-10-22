@@ -18,9 +18,9 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-pressed={!dark}
-      className="rounded-ui border border-border px-3 py-2 font-mono text-[12.5px] text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground"
+      className="text-[15px] text-muted-foreground transition-colors duration-[120ms] hover:text-foreground"
     >
-      {dark ? "Light mode" : "Dark mode"}
+      {dark ? "Light" : "Dark"}
     </button>
   );
 }

@@ -44,9 +44,10 @@ export function CommandMenu() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        className="rounded-ui border border-border px-3 py-2 font-mono text-[12.5px] text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground"
+        className="group flex items-baseline gap-2 text-[15px] text-muted-foreground transition-colors duration-[120ms] hover:text-foreground"
       >
-        ⌘K search
+        Search
+        <kbd className="hidden font-mono text-xs sm:inline">⌘K</kbd>
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
