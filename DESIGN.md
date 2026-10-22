@@ -24,7 +24,7 @@ All three load through `next/font/google` (`src/app/layout.tsx`) and are exposed
 
 - Display: `clamp(3rem, 7vw, 5.25rem)`, line height 0.95, tracking -0.03em, weight 800.
 - Body: 17px, line height 1.65. Never wider than 62–65ch.
-- Section headings are small, sentence case, `muted-foreground`, Plex Sans 600. No numbers, no eyebrows.
+- Section headings are small, sentence case, `foreground`, Plex Sans 600, under a full-width 1px `border` rule. No numbers, no eyebrows.
 - Real typography: curly quotes, en dashes in ranges (2024–2026), `tabular-nums` on dates and metrics.
 
 ## Color
@@ -53,7 +53,7 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 - 4px base. Use Tailwind's default steps.
 - Desktop (≥1024px): 12 columns, max width 1200px, 48px gutter. Left column (5) is sticky and holds the intro; right column (7) scrolls.
 - Search (⌘K) and the theme toggle sit top right, level with the logo, at every width. Below 1024px everything else stacks: intro, about, work, experience, contact.
-- Sections are separated by space (96px), not boxes or rules.
+- Sections are separated by 96px of space and one hairline rule above each section heading (added Oct 22 so sections read as chapters on phones). No boxes, and no other rules.
 - One radius: `rounded-ui` (6px).
 - No elevation. Separate with a border or `surface`.
 

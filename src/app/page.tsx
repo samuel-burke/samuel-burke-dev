@@ -30,7 +30,7 @@ const experience: { when: string; title: React.ReactNode; body: string }[] = [
 
 function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
-    <h2 id={id} className="mb-6 text-[15px] font-semibold text-muted-foreground">
+    <h2 id={id} className="mb-8 border-t border-border pt-5 text-[15px] font-semibold">
       {children}
     </h2>
   );
