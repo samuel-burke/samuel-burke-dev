@@ -10,8 +10,8 @@
 ## Background
 
 - Founder, Burke Systems (2026–now)
-- QA engineering intern, ZenGRC: wrote end-to-end tests for the QA team
-- B.S. Computer Science, NC State University
+- B.S. Computer Science, NC State University (Fall 2024)
+- QA engineering intern, ZenGRC (Summer 2022): wrote end-to-end tests for the QA team
 
 ## Links
 

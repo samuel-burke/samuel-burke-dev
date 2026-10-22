@@ -17,14 +17,14 @@ const experience: { when: string; title: React.ReactNode; body: string }[] = [
     body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
   },
   {
-    when: "Internship",
-    title: "QA engineering intern · ZenGRC",
-    body: "Wrote end-to-end tests for the QA team on ZenGRC, a governance, risk and compliance platform.",
-  },
-  {
-    when: "Education",
+    when: "Fall 2024",
     title: "B.S. Computer Science · NC State University",
     body: "North Carolina State University, Raleigh.",
+  },
+  {
+    when: "Summer 2022",
+    title: "QA engineering intern · ZenGRC",
+    body: "Wrote end-to-end tests for the QA team on ZenGRC, a governance, risk and compliance platform.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function Home() {
         </section>
 
         <section aria-labelledby="work-h" id="work" className="scroll-mt-8 pt-24">
-          <SectionHeading id="work-h">Selected work</SectionHeading>
+          <SectionHeading id="work-h">Recent work</SectionHeading>
 
           <article>
             <h3 className="mb-3 font-display text-[clamp(2.25rem,5vw,3.25rem)] font-extrabold leading-none tracking-[-0.03em]">
@@ -169,7 +169,6 @@ export default function Home() {
 
         <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">
           <SectionHeading id="exp-h">Experience</SectionHeading>
-          {/* TODO(samuel): add years for the ZenGRC internship and NC State. */}
           <div className="space-y-10">
             {experience.map((item) => (
               <div key={item.when} className="grid gap-1 sm:grid-cols-[128px_1fr] sm:gap-4">
