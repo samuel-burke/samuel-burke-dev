@@ -12,7 +12,7 @@ function CommandInput({ className, ...props }: React.ComponentProps<typeof Comma
   return (
     <CommandPrimitive.Input
       className={cn(
-        "w-full border-b border-border bg-transparent px-[18px] py-4 text-base text-foreground outline-none placeholder:text-muted-foreground",
+        "w-full border-b border-border bg-transparent px-[18px] py-4 font-mono text-[15px] text-foreground outline-none placeholder:text-muted-foreground",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ function CommandGroup({ className, ...props }: React.ComponentProps<typeof Comma
   return (
     <CommandPrimitive.Group
       className={cn(
-        "[&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:pb-1.5 [&_[cmdk-group-heading]]:pt-2.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:tracking-[0.18em] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:text-burke-blue",
+        "[&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:pb-1.5 [&_[cmdk-group-heading]]:pt-2.5 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:text-muted-foreground",
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ function CommandItem({ className, ...props }: React.ComponentProps<typeof Comman
   return (
     <CommandPrimitive.Item
       className={cn(
-        "flex cursor-pointer items-center justify-between gap-3 rounded-md px-2.5 py-2.5 text-[15px] data-[selected=true]:bg-mist",
+        "flex cursor-pointer items-center justify-between gap-3 rounded-[4px] px-2.5 py-2.5 text-[15px] data-[selected=true]:bg-surface",
         className,
       )}
       {...props}

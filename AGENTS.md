@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # samuelburke.dev
 
-Samuel Burke's portfolio. Next.js 16 App Router, statically exported (`output: "export"`) to Cloudflare Pages. Tailwind v4, shadcn/ui primitives themed with the Burke Systems brand tokens in `src/app/globals.css`.
+Samuel Burke's portfolio. Next.js 16 App Router, statically exported (`output: "export"`) to Cloudflare Pages. Tailwind v4, shadcn/ui primitives re-themed to the tokens in `src/app/globals.css`.
 
 ## Before any UI work
 
@@ -19,7 +19,7 @@ Read `DESIGN.md` first. It is the spec: tokens, type, layout, motion and a **Nev
 ## Rules
 
 - Static export only: no server actions, route handlers that read the request, cookies, or `next/image` optimization. If a feature needs a server, stop and ask.
-- Use the theme tokens (`bg-night`, `bg-paper`, `text-burke-blue`, `text-muted-foreground`, `rounded-ui`...). Never hard-code colors.
+- Use the theme tokens (`bg-background`, `text-muted-foreground`, `border-border`, `rounded-ui`...). Never hard-code colors.
 - Site facts (name, links, email) live in `src/lib/site.ts`.
 - Asset paths in `public/` are referenced relatively (`work/...`), so the export also works from a subfolder.
 - Copy is first person, plain, specific. No filler words (see DESIGN.md).
@@ -32,4 +32,4 @@ npx tsc --noEmit
 npm run build
 ```
 
-Then look at the result in a browser at 375px and 1440px.
+Then look at the result in a browser at 375px and 1440px, dark and light.

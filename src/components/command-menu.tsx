@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { site } from "@/lib/site";
@@ -11,11 +12,12 @@ function go(id: string) {
 }
 
 function Hint({ children }: { children: React.ReactNode }) {
-  return <span className="text-xs text-muted-foreground">{children}</span>;
+  return <span className="font-mono text-xs text-muted-foreground">{children}</span>;
 }
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -42,10 +44,9 @@ export function CommandMenu() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        aria-label="Open command menu"
-        className="hidden h-11 items-center gap-2 rounded-ui border border-night-line px-3 text-sm text-cloud transition-colors hover:border-cloud hover:text-white sm:inline-flex"
+        className="rounded-ui border border-border px-3 py-2 font-mono text-[12.5px] text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground"
       >
-        <kbd className="font-sans text-[13px] font-semibold">⌘K</kbd>
+        ⌘K search
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
@@ -56,14 +57,17 @@ export function CommandMenu() {
             <CommandList>
               <CommandEmpty>No matches. Try “work” or “email”.</CommandEmpty>
               <CommandGroup heading="Navigate">
+                <CommandItem onSelect={() => run(() => go("about"))}>About <Hint>section</Hint></CommandItem>
                 <CommandItem onSelect={() => run(() => go("work"))}>Work: ShiftView <Hint>section</Hint></CommandItem>
                 <CommandItem onSelect={() => run(() => go("experience"))}>Experience <Hint>section</Hint></CommandItem>
-                <CommandItem onSelect={() => run(() => go("about"))}>About <Hint>section</Hint></CommandItem>
                 <CommandItem onSelect={() => run(() => go("contact"))}>Contact <Hint>section</Hint></CommandItem>
               </CommandGroup>
               <CommandGroup heading="Actions">
                 <CommandItem onSelect={() => run(() => navigator.clipboard?.writeText(site.email))}>
                   Copy email <Hint>action</Hint>
+                </CommandItem>
+                <CommandItem onSelect={() => run(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}>
+                  Toggle theme <Hint>action</Hint>
                 </CommandItem>
                 <CommandItem onSelect={() => run(() => window.open("https://shiftview.app", "_blank"))}>
                   Open ShiftView <Hint>link</Hint>

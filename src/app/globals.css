@@ -1,106 +1,95 @@
 @import "tailwindcss";
 
-/*
- * Design tokens, shared with burke.systems so the portfolio and the studio
- * read as one brand. The source of truth is DESIGN.md; change them there first.
- */
-:root {
-  /* Brand palette */
-  --burke-blue: #2b50e8;
-  --burke-blue-hover: #1c3bb8;
-  --night: #0f172a;
-  --night-raised: #1a2440;
-  --night-line: #2a3658;
-  --slate: #475569;
-  --mist: #dce3f7;
-  --paper: #f4f6fa;
-  --white: #ffffff;
-  --cloud: #c7d0e0; /* secondary text on Night */
-  --periwinkle: #8fa6f5; /* accent text on Night */
+/* Design tokens. The source of truth is DESIGN.md; change them there first. */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  /* Roles */
-  --radius: 8px;
-  --background: var(--white);
-  --foreground: var(--night);
-  --surface: var(--paper);
-  --muted-foreground: var(--slate);
-  --border: #e2e8f0;
-  --primary: var(--burke-blue);
-  --ring: var(--burke-blue);
-  --destructive: #dc2626;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+:root {
+  --radius: 6px;
+  --background: #F7F6F3;
+  --foreground: #141413;
+  --surface: #EFEDE8;
+  --muted-foreground: #66645F;
+  --border: #C9C6BE;
+  --ring: #141413;
+  --destructive: #B4261E;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.dark {
+  --background: #121211;
+  --foreground: #EDECE8;
+  --surface: #1C1B1A;
+  --muted-foreground: #9A9893;
+  --border: #3A3936;
+  --ring: #EDECE8;
+  --destructive: #F0857C;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-burke-blue: var(--burke-blue);
-  --color-burke-blue-hover: var(--burke-blue-hover);
-  --color-night: var(--night);
-  --color-night-raised: var(--night-raised);
-  --color-night-line: var(--night-line);
-  --color-mist: var(--mist);
-  --color-paper: var(--paper);
-  --color-cloud: var(--cloud);
-  --color-periwinkle: var(--periwinkle);
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-primary: var(--primary);
   --color-ring: var(--ring);
   --color-destructive: var(--destructive);
-
   --radius-ui: var(--radius);
-  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: var(--font-schibsted), "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  --ease-site: var(--ease);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-    background: var(--night);
+  a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-thickness 120ms var(--ease);
   }
 
-  body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
+  a:hover {
+    text-decoration-thickness: 2px;
   }
+}
 
-  h1,
-  h2,
-  h3 {
-    font-family: var(--font-heading);
-  }
+@keyframes logo-cut {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
 
-  ::selection {
-    background: var(--mist);
-    color: var(--night);
-  }
-
-  :focus-visible {
-    outline: 2px solid var(--burke-blue);
-    outline-offset: 2px;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
   }
 }
 
 @keyframes palette-in {
   from { opacity: 0; transform: translate(-50%, 4px); }
   to { opacity: 1; transform: translate(-50%, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }

@@ -1,17 +1,25 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import type { Metadata } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Schibsted_Grotesk } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
   weight: ["700", "800"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -22,21 +30,15 @@ export const metadata: Metadata = {
   openGraph: { title: site.name, description: `${site.role}. Builder of ShiftView.`, url: site.url, type: "website" },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#0F172A",
-};
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${schibsted.variable} ${plexSans.variable} ${plexMono.variable} dark`}
+    >
       <body>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-ui focus:bg-white focus:px-4 focus:py-2 focus:text-night"
-        >
-          Skip to main content
-        </a>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
