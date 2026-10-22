@@ -40,10 +40,10 @@ export function CopyEmail() {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-3 rounded-ui border border-border px-4 py-3.5 font-mono text-[15px] transition-colors duration-[120ms] hover:border-foreground"
+      className="inline-flex h-12 items-center gap-3 rounded-ui bg-white px-6 text-base font-semibold text-night transition-colors hover:bg-mist"
     >
       <span ref={ref}>{site.email}</span>
-      <span className="min-w-[7ch] text-left text-[12.5px] text-muted-foreground" aria-live="polite">
+      <span className="min-w-[7ch] text-left text-sm font-medium text-burke-blue" aria-live="polite">
         {status}
       </span>
     </button>

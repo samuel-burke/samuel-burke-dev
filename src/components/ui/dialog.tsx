@@ -16,10 +16,10 @@ function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content>) {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-black/60" />
+      <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-night/60" />
       <DialogPrimitive.Content
         className={cn(
-          "fixed left-1/2 top-[12vh] z-50 w-[min(560px,calc(100vw-32px))] -translate-x-1/2 overflow-hidden rounded-ui border border-border bg-background text-foreground",
+          "fixed left-1/2 top-[12vh] z-50 w-[min(560px,calc(100vw-32px))] -translate-x-1/2 overflow-hidden rounded-[14px] border border-border bg-white text-foreground shadow-xl",
           "motion-safe:animate-[palette-in_200ms_var(--ease)]",
           className,
         )}
