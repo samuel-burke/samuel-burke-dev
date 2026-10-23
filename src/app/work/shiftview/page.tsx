@@ -164,7 +164,7 @@ function ArchitectureDiagram() {
 export default function ShiftViewCaseStudy() {
   return (
     <div className="mx-auto max-w-[1200px] px-5 pb-12 lg:px-12">
-      <header className="flex items-center justify-between gap-4 py-6">
+      <header className="flex items-center justify-between gap-4 border-b border-border py-5">
         <div className="flex items-center gap-5">
           <a href={base} aria-label="Samuel Burke, home" className="no-underline">
             <LogoMark className="h-8 w-auto" />
