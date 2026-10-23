@@ -19,8 +19,8 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
   },
   {
     when: "2024 – now",
-    title: "Retail manager · Lowe’s",
-    body: "Run shifts and lead a store team. Scheduling and timekeeping here are the problems ShiftView was built to solve.",
+    title: "Fulfillment department supervisor · Lowe’s",
+    body: "I manage the largest fulfillment team in the district, in Wake Forest, NC. I worked up from loader to supervisor in just over a year, through building materials sales and Pro Services commercial accounts. The scheduling and timekeeping problems here are what ShiftView was built to solve.",
   },
   {
     when: "Fall 2024",
