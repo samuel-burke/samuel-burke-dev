@@ -91,15 +91,6 @@ body {
   to { opacity: 1; transform: none; }
 }
 
-@keyframes logo-trace {
-  from { opacity: 1; stroke-dashoffset: 1; }
-  to { opacity: 1; stroke-dashoffset: 0; }
-}
-
-@keyframes logo-fill {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

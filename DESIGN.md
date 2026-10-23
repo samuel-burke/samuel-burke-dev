@@ -6,7 +6,7 @@ Source of truth for the reasoning: [design plan](https://claude.ai/artifact/K45k
 
 ## Direction
 
-**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the S engraves into the B. It should look decided, not generated.
+**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the B logo draws in. It should look decided, not generated.
 
 1. **Content leads.** Projects and words carry the page; decoration earns its place or goes.
 2. **One voice.** One palette, one radius, one motion curve, everywhere.
@@ -51,9 +51,8 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 ## Space, grid, radius
 
 - 4px base. Use Tailwind's default steps.
-- The first screen is the hero and nothing else: “Hi, I’m”, the name, one line on who I am and what I do, and links. About starts below the fold (Samuel, Oct 23).
-- Desktop (≥1024px), below the hero: 12 columns, max width 1200px, 48px gutter. Left column (4) is sticky and holds the small name, the section nav and links; right column (8) scrolls.
-- A top bar holds the logo (left) and search and theme (right) over a full-width 1px `border` line, at every width. It scrolls away; the intro below it is sticky. Below 1024px everything stacks: hero, about, work, experience, contact.
+- Desktop (≥1024px): 12 columns, max width 1200px, 48px gutter. Left column (5) is sticky and holds the intro (“Hi, I’m”, name, role, one line), the section nav and links; right column (7) scrolls. The hero is being reworked (Samuel, Oct 23); a full-screen name hero was tried and removed.
+- A top bar holds the logo (left) and search and theme (right) over a full-width 1px `border` line, at every width. It scrolls away; the intro below it is sticky. Below 1024px everything stacks: intro, about, work, experience, contact.
 - Sections are separated by 96px of space and one hairline rule above each section heading (added Oct 22 so sections read as chapters on phones). No boxes, and no other rules.
 - One radius: `rounded-ui` (6px).
 - No elevation. Separate with a border or `surface`.
@@ -79,11 +78,11 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 | `--ease` | cubic-bezier(0.2, 0, 0, 1) | Everything |
 | fast | 120ms | Hover, underline, focus |
 | base | 200ms | Palette open, nav marker |
-| slow | 650–950ms | The logo moment only |
+| slow | 700ms | The logo moment only |
 
-**Hero entrance.** On load, the hero’s four lines fade up 12px in sequence (`hero-in`, 600ms each, 80ms apart; done by about 0.9s). Once, never on scroll, skipped under `prefers-reduced-motion` (Samuel asked for it, Oct 23). No other section animates in.
+**Intro entrance.** On load, the intro’s four lines fade up 12px in sequence (`hero-in`, 600ms each, 80ms apart; done by about 0.9s). Once, never on scroll, skipped under `prefers-reduced-motion` (Samuel asked for it, Oct 23). No other section animates in.
 
-**The signature moment.** On the first visit of a session the S outline traces into the solid B and the cut fills (done by about 1s; `logo-trace`, `logo-fill`). The B itself doesn't move. It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It never blocks content and is skipped under `prefers-reduced-motion`.
+**The signature moment.** On the first visit of a session the B, with its S cutout, draws in from left to right over 700ms (`logo-cut`, clip-path). It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It never blocks content and is skipped under `prefers-reduced-motion`.
 
 Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, loaders, custom cursors, anything that loops on the home page.
 

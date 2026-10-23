@@ -1,5 +1,5 @@
 // The B from the Samuel Burke mark (drawn on a 512x512 grid; the B spans x 150.3–366.7, y 112–400).
-// B_PATH uses even-odd fill so the S is cut out. B_OUTER and S_CUT are its two parts, for the animation.
+// B_PATH uses even-odd fill so the S is cut out. B_OUTER and S_CUT are its two parts.
 export const B_OUTER =
   "M150.3,112L150.3,400L290.607,400C332.604,400 366.7,365.273 366.7,322.5C366.7,282.785 337.305,250.007 299.485,245.523C326.234,236.47 345.545,210.764 345.545,180.5C345.545,142.694 315.409,112 278.289,112L150.3,112Z";
 export const S_CUT =

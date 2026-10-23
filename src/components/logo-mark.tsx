@@ -1,58 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { B_OUTER, B_PATH, S_CUT } from "@/components/logo-paths";
+import { B_PATH } from "@/components/logo-paths";
 import { cn } from "@/lib/utils";
 
-function reducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-// The signature moment: the S engraves into the solid B. Once per session, on first load only.
-// At rest the S is a real even-odd cut; while playing it is painted in the background color on top.
+// The signature moment: the B, with its S cutout, draws in from left to right. Once per session, on first load only.
 export function LogoMark({ className }: { className?: string }) {
-  const [run, setRun] = useState(0);
-  const [playing, setPlaying] = useState(false);
-
-  function play() {
-    if (reducedMotion()) return;
-    setRun((n) => n + 1);
-    setPlaying(true);
-  }
+  const [run, setRun] = useState(false);
 
   useEffect(() => {
     try {
       if (sessionStorage.getItem("sb-cut")) return;
       sessionStorage.setItem("sb-cut", "1");
     } catch {}
-    const frame = requestAnimationFrame(play);
+    const frame = requestAnimationFrame(() => setRun(true));
     return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
-    <svg
-      viewBox="150.3 112 216.4 288"
-      role="img"
-      aria-label="Samuel Burke"
-      className={cn("block overflow-visible", className)}
-    >
-      {playing ? (
-        <g key={run}>
-          <path d={B_OUTER} className="fill-foreground" />
-          <path
-            d={S_CUT}
-            className="fill-background animate-[logo-fill_300ms_var(--ease)_650ms_both]"
-            onAnimationEnd={() => setPlaying(false)}
-          />
-          <path
-            d={S_CUT}
-            pathLength={1}
-            className="fill-none stroke-background opacity-0 [stroke-dasharray:1] [stroke-dashoffset:1] [stroke-width:6] animate-[logo-trace_650ms_var(--ease)_100ms_both]"
-          />
-        </g>
-      ) : (
-        <path d={B_PATH} fillRule="evenodd" className="fill-foreground" />
-      )}
+    <svg viewBox="150.3 112 216.4 288" role="img" aria-label="Samuel Burke" className={cn("block", className)}>
+      <path
+        d={B_PATH}
+        fillRule="evenodd"
+        className={cn("fill-foreground", run && "animate-[logo-cut_700ms_var(--ease)_both]")}
+      />
     </svg>
   );
 }
