@@ -12,7 +12,7 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
     when: "Fall 2026 – now",
     title: (
       <>
-        Founder · <a href="https://burke.systems">Burke Systems</a>
+        Founder · <a href="https://burke.systems">Burke Systems ↗</a>
       </>
     ),
     body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
@@ -114,7 +114,7 @@ export default function Home() {
             </SectionHeading>
             <div className="max-w-[62ch] space-y-4">
               <p>
-                I’m an independent developer and the founder of <a href="https://burke.systems">Burke Systems</a>, a
+                I’m an independent developer and the founder of <a href="https://burke.systems">Burke Systems ↗</a>, a
                 small software studio in Raleigh-Durham that builds custom tools for small and mid-size businesses.
               </p>
               <p>
@@ -252,7 +252,7 @@ export default function Home() {
 
           <footer className="mt-24 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-border pt-5 text-sm text-muted-foreground">
             <span>Built with Next.js, Tailwind and shadcn/ui</span>
-            <a href={site.repo}>Source on GitHub</a>
+            <a href={site.repo}>Source on GitHub ↗</a>
           </footer>
         </main>
       </div>

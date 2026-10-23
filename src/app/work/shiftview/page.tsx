@@ -427,7 +427,7 @@ export default function ShiftViewCaseStudy() {
           <div className="mt-20 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-6 text-[15px]">
             <a href="https://shiftview.app">Try the live demo ↗</a>
             <a href="https://github.com/samuel-burke/shiftview">Read the code ↗</a>
-            <a href={`${base}#contact`}>Get in touch</a>
+            <a href={`${base}#contact`}>Get in touch →</a>
           </div>
         </article>
       </div>
