@@ -101,8 +101,8 @@ export default function Home() {
           </p>
           <SectionNav />
           <p className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
-            <a href={site.github}>GitHub</a>
-            <a href={site.linkedin}>LinkedIn</a>
+            <a href={site.github}>GitHub ↗</a>
+            <a href={site.linkedin}>LinkedIn ↗</a>
           </p>
         </div>
 
