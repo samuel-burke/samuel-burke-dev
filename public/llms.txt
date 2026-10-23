@@ -4,7 +4,7 @@
 
 ## Work
 
-- [ShiftView](https://shiftview.app): Scheduling and a time clock for retail and fulfillment teams. Built solo with Next.js 16, React 19, Supabase and TypeScript. Deterministic auto-scheduler, real-time coverage, two-layer security (API route handlers plus row-level security), 1,600+ automated tests. Source: https://github.com/samuel-burke/shiftview. Case study (architecture, auth and security, CI/CD): https://samuelburke.dev/work/shiftview/
+- [ShiftView](https://shiftview.app): Scheduling and a time clock for retail and fulfillment teams. Built solo to solve the scheduling and timekeeping problems Samuel faced as a retail manager, with Next.js 16, React 19, Supabase and TypeScript. Deterministic auto-scheduler, real-time coverage, two-layer security (API route handlers plus row-level security), 1,600+ automated tests. Source: https://github.com/samuel-burke/shiftview. Case study (architecture, auth and security, CI/CD): https://samuelburke.dev/work/shiftview/
 
 ## Background
 

@@ -216,10 +216,10 @@ export default function ShiftViewCaseStudy() {
         <article className="min-w-0 max-w-[65ch] lg:col-span-9">
           <Section id="what" title="What it does">
             <p>
-              Before I wrote software full time, I ran a high-volume fulfillment team. The schedule was never the hard
-              part. The day was: someone calls out, a truck comes early, two people swap a shift in a group text, and by
-              mid-morning nobody is sure who is on the floor. ShiftView handles that whole loop in one app, for managers
-              and for the people on the floor.
+              I built ShiftView to solve a problem I faced as a retail manager: shift scheduling and timekeeping.
+              Someone calls out, two people swap a shift in a group text, and by mid-morning nobody is sure who is on
+              the floor or whose hours are right. ShiftView handles that whole loop in one app, for managers and for the
+              people on the floor.
             </p>
             <div className="grid gap-x-8 gap-y-6 pt-4 sm:grid-cols-2">
               {features.map((group) => (

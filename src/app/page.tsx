@@ -72,8 +72,8 @@ export default function Home() {
             </p>
             <p>
               I like owning a product from the problem to production: the schema, the security model, and the screen a
-              shift lead uses on a busy morning. My flagship is ShiftView, a scheduling and time-clock app I designed and
-              built on my own.
+              shift lead uses on a busy morning. I built ShiftView to solve a problem I faced as a retail manager:
+              shift scheduling and timekeeping.
             </p>
             <p>I care about software that is boring to run: typed end to end, tested on every change, fast on a cheap phone.</p>
           </div>
