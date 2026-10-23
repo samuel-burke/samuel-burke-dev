@@ -138,7 +138,7 @@ export function CommandMenu() {
       {toast && (
         <div
           aria-hidden
-          className="fixed bottom-6 left-1/2 z-50 w-max max-w-[calc(100vw-32px)] -translate-x-1/2 animate-[palette-in_200ms_var(--ease)_both] rounded-ui border border-border bg-surface px-4 py-3 font-mono text-[13px] text-foreground"
+          className="fixed bottom-6 left-1/2 z-50 w-max max-w-[calc(100vw-32px)] animate-[palette-in_200ms_var(--ease)_both] rounded-ui border border-border bg-surface px-4 py-3 font-mono text-[13px] text-foreground"
         >
           {toast}
         </div>
