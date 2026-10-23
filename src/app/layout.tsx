@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Schibsted_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { site } from "@/lib/site";
@@ -27,7 +27,20 @@ export const metadata: Metadata = {
   title: `${site.name} · ${site.role}`,
   description:
     "Samuel Burke, independent software developer and founder of Burke Systems. Builds products end to end, from design to deployment, including ShiftView, a scheduling and time-clock app for retail and fulfillment teams.",
-  openGraph: { title: site.name, description: `${site.role}. Builder of ShiftView.`, url: site.url, type: "website" },
+  openGraph: {
+    title: site.name,
+    description: `${site.role}. I build products end to end, from design to deployment.`,
+    url: site.url,
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0F172A" },
+    { media: "(prefers-color-scheme: light)", color: "#F4F6FA" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

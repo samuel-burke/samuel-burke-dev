@@ -154,17 +154,8 @@ export default function Home() {
             </p>
           </article>
 
-          <article className="mt-20 max-w-[62ch]">
-            <h3 className="mb-2 text-lg font-semibold">
-              <a href={site.repo}>samuelburke.dev</a>
-            </h3>
-            <p className="text-muted-foreground">
-              This site. Built with coding agents against a written design spec, then statically exported to Cloudflare
-              Pages. The source, the spec and the agent setup are all public.
-            </p>
-          </article>
 
-          <p className="mt-10 text-[15px] text-muted-foreground">More projects are on the way.</p>
+          <p className="mt-16 text-[15px] text-muted-foreground">More projects are on the way.</p>
         </section>
 
         <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">

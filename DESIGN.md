@@ -6,7 +6,7 @@ Source of truth for the reasoning: [design plan](https://claude.ai/artifact/K45k
 
 ## Direction
 
-**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the B logo draws in. It should look decided, not generated.
+**An engineer's notebook, typeset with care.** Monochrome paper and ink, oversized type, an asymmetric editorial layout, and one precise moment of motion where the B draws in and the S engraves into it. It should look decided, not generated.
 
 1. **Content leads.** Projects and words carry the page; decoration earns its place or goes.
 2. **One voice.** One palette, one radius, one motion curve, everywhere.
@@ -78,9 +78,9 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 | `--ease` | cubic-bezier(0.2, 0, 0, 1) | Everything |
 | fast | 120ms | Hover, underline, focus |
 | base | 200ms | Palette open, nav marker |
-| slow | 700ms | The logo moment only |
+| slow | 600–1400ms | The logo moment only |
 
-**The signature moment.** On the first visit of a session the B draws in from left to right over 700ms (`logo-cut` keyframes, clip-path). It replays on hover, never blocks content, and is skipped under `prefers-reduced-motion`.
+**The signature moment.** On the first visit of a session the solid B draws in from left to right (600ms), then the S outline traces into it and the cut fills (done by about 1.4s; `logo-cut`, `logo-trace`, `logo-fill`). It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It never blocks content and is skipped under `prefers-reduced-motion`.
 
 Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, loaders, custom cursors, anything that loops on the home page.
 
