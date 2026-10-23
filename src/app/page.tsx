@@ -161,12 +161,14 @@ export default function Home() {
                 <div className="grid max-w-[520px] grid-cols-2 gap-4">
                   <Shot
                     name="phone-clock"
+                    bare
                     alt="ShiftView time clock on a phone, clocked in with a running timer."
                     width={602}
                     height={1262}
                   />
                   <Shot
                     name="phone-team"
+                    bare
                     alt="ShiftView team view on a phone, listing who is here now."
                     width={600}
                     height={1262}

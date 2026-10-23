@@ -7,6 +7,7 @@ export function Shot({
   height,
   base = "",
   className = "",
+  bare = false,
 }: {
   name: string;
   alt: string;
@@ -14,12 +15,26 @@ export function Shot({
   height: number;
   base?: string;
   className?: string;
+  // Phone captures already carry their own device frame, so they skip the border.
+  bare?: boolean;
 }) {
-  const frame = `h-auto w-full rounded-ui border border-border ${className}`;
+  const frame = `h-auto w-full ${bare ? "" : "rounded-ui border border-border"} ${className}`;
   return (
     <>
-      <img src={`${base}img/shiftview/${name}-dark.webp`} alt={alt} width={width} height={height} className={`hidden dark:block ${frame}`} />
-      <img src={`${base}img/shiftview/${name}-light.webp`} alt={alt} width={width} height={height} className={`block dark:hidden ${frame}`} />
+      <img
+        src={`${base}img/shiftview/${name}-dark.webp`}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`hidden dark:block ${frame}`}
+      />
+      <img
+        src={`${base}img/shiftview/${name}-light.webp`}
+        alt={alt}
+        width={width}
+        height={height}
+        className={`block dark:hidden ${frame}`}
+      />
     </>
   );
 }
