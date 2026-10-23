@@ -18,6 +18,11 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
     body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
   },
   {
+    when: "2024 – now",
+    title: "Retail manager · Lowe’s",
+    body: "Run shifts and lead a store team. Scheduling and timekeeping here are the problems ShiftView was built to solve.",
+  },
+  {
     when: "Fall 2024",
     title: "B.S. Computer Science · NC State University",
     body: "North Carolina State University, Raleigh.",

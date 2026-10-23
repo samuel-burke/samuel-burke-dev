@@ -9,6 +9,7 @@
 ## Background
 
 - Founder, Burke Systems (Fall 2026–now)
+- Retail manager, Lowe’s (2024–now): the scheduling and timekeeping problems ShiftView solves
 - B.S. Computer Science, NC State University (Fall 2024)
 - QA engineering intern, ZenGRC (Summer 2022): wrote end-to-end tests for the QA team
 
