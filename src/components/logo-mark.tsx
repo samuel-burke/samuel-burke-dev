@@ -8,7 +8,7 @@ function reducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-// The signature moment: the solid B draws in, then the S engraves into it. Once per session, on first load only.
+// The signature moment: the S engraves into the solid B. Once per session, on first load only.
 // At rest the S is a real even-odd cut; while playing it is painted in the background color on top.
 export function LogoMark({ className }: { className?: string }) {
   const [run, setRun] = useState(0);
@@ -38,16 +38,16 @@ export function LogoMark({ className }: { className?: string }) {
     >
       {playing ? (
         <g key={run}>
-          <path d={B_OUTER} className="fill-foreground animate-[logo-cut_600ms_var(--ease)_both]" />
+          <path d={B_OUTER} className="fill-foreground" />
           <path
             d={S_CUT}
-            className="fill-background animate-[logo-fill_300ms_var(--ease)_1050ms_both]"
+            className="fill-background animate-[logo-fill_300ms_var(--ease)_650ms_both]"
             onAnimationEnd={() => setPlaying(false)}
           />
           <path
             d={S_CUT}
             pathLength={1}
-            className="fill-none stroke-background opacity-0 [stroke-dasharray:1] [stroke-dashoffset:1] [stroke-width:6] animate-[logo-trace_650ms_var(--ease)_450ms_both]"
+            className="fill-none stroke-background opacity-0 [stroke-dasharray:1] [stroke-dashoffset:1] [stroke-width:6] animate-[logo-trace_650ms_var(--ease)_100ms_both]"
           />
         </g>
       ) : (

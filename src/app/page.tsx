@@ -58,14 +58,30 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Hero: the whole first screen is who I am and what I do. About starts below the fold. */}
+      <section
+        aria-label="Introduction"
+        className="mx-auto flex min-h-[calc(100svh-81px)] max-w-[1200px] flex-col justify-center px-5 pb-20 pt-12 lg:px-12"
+      >
+        <p className="mb-4 text-xl text-muted-foreground lg:text-2xl">Hi, I’m</p>
+        <h1 className="mb-6 font-display text-[clamp(3.5rem,11vw,8.5rem)] font-extrabold leading-[0.9] tracking-[-0.035em]">
+          {site.name}
+        </h1>
+        <p className="max-w-[34ch] text-xl text-balance lg:text-[1.75rem] lg:leading-snug">
+          {site.role} building products end to end, from design to deployment.
+        </p>
+        <p className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+          <a href="#work">See my work ↓</a>
+          <a href={site.github}>GitHub</a>
+          <a href={site.linkedin}>LinkedIn</a>
+        </p>
+      </section>
+
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
-        <div className="flex flex-col pb-8 pt-12 lg:sticky lg:top-0 lg:col-span-5 lg:h-screen lg:pb-12 lg:pt-14">
-          <p className="mb-3 text-xl text-muted-foreground">Hi, I’m</p>
-        <h1 className="mb-4 font-display text-[clamp(3rem,7vw,5.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] text-balance">
-            {site.name}
-          </h1>
-          <p className="mb-2 text-xl">{site.role}</p>
-          <p className="max-w-[36ch] text-muted-foreground">I build products end to end, from design to deployment.</p>
+        {/* Desktop only: a quiet sticky column with the name, section nav and links. */}
+        <div className="hidden lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:h-screen lg:flex-col lg:self-start lg:pt-24">
+          <p className="font-display text-2xl font-extrabold tracking-[-0.02em]">{site.name}</p>
+          <p className="text-[15px] text-muted-foreground">{site.role}</p>
           <SectionNav />
           <p className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
             <a href={site.github}>GitHub</a>
@@ -73,12 +89,9 @@ export default function Home() {
           </p>
         </div>
 
-        <main className="min-w-0 pb-12 lg:col-span-7">
-          <section aria-labelledby="about-h" id="about" className="scroll-mt-8 pt-16 lg:pt-14">
-            {/* On desktop the top bar's line already sits just above, so About skips its own. */}
-            <SectionHeading id="about-h" className="lg:border-t-0 lg:pt-0">
-              About
-            </SectionHeading>
+        <main className="min-w-0 pb-12 lg:col-span-8">
+          <section aria-labelledby="about-h" id="about" className="min-h-svh scroll-mt-8 lg:pt-24">
+            <SectionHeading id="about-h">About</SectionHeading>
             <div className="max-w-[62ch] space-y-4">
               <p>
                 I’m an independent developer and the founder of <a href="https://burke.systems">Burke Systems</a>, a
@@ -96,7 +109,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="work-h" id="work" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="work-h" id="work" className="min-h-svh scroll-mt-8 pt-24">
             <SectionHeading id="work-h">Recent work</SectionHeading>
 
             <article>
@@ -178,7 +191,7 @@ export default function Home() {
             <p className="mt-16 text-[15px] text-muted-foreground">More projects are on the way.</p>
           </section>
 
-          <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="exp-h" id="experience" className="min-h-svh scroll-mt-8 pt-24">
             <SectionHeading id="exp-h">Experience</SectionHeading>
             <div className="space-y-10">
               {experience.map((item) => (
@@ -195,7 +208,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="contact-h" id="contact" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="contact-h" id="contact" className="min-h-svh scroll-mt-8 pt-24">
             <SectionHeading id="contact-h">Contact</SectionHeading>
             <p className="mb-3 font-display text-[clamp(2rem,4.5vw,2.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em]">
               Say hello
