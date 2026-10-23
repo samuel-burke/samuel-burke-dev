@@ -60,7 +60,8 @@ export default function Home() {
 
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
         <div className="flex flex-col pb-8 pt-12 lg:sticky lg:top-0 lg:col-span-5 lg:h-screen lg:pb-12 lg:pt-14">
-          <h1 className="mb-4 font-display text-[clamp(3rem,7vw,5.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] text-balance">
+          <p className="mb-3 text-xl text-muted-foreground">Hi, I’m</p>
+        <h1 className="mb-4 font-display text-[clamp(3rem,7vw,5.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] text-balance">
             {site.name}
           </h1>
           <p className="mb-2 text-xl">{site.role}</p>
