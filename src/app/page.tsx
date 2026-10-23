@@ -52,7 +52,7 @@ export default function Home() {
         </h1>
         <p className="mb-2 text-xl">{site.role}</p>
         <p className="max-w-[36ch] text-muted-foreground">
-          I build the scheduling, tracking and internal tools that small teams run their day on.
+          I build products end to end, from design to deployment.
         </p>
         <SectionNav />
         <p className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
@@ -66,7 +66,7 @@ export default function Home() {
           <SectionHeading id="about-h">About</SectionHeading>
           <div className="max-w-[62ch] space-y-4">
             <p>
-              I’m a full-stack engineer and the founder of{" "}
+              I’m an independent developer and the founder of{" "}
               <a href="https://burke.systems">Burke Systems</a>, a small software studio in Raleigh-Durham that builds
               custom tools for small and mid-size businesses.
             </p>

@@ -1,6 +1,6 @@
 # Samuel Burke
 
-> Full-stack engineer and founder of Burke Systems, a small software studio in Raleigh-Durham, NC. Builds the scheduling, tracking and internal tools that small teams run their day on.
+> Independent software developer and founder of Burke Systems, a small software studio in Raleigh-Durham, NC. Builds products end to end, from design to deployment.
 
 ## Work
 

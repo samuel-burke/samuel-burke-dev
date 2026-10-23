@@ -1,6 +1,6 @@
 export const site = {
   name: "Samuel Burke",
-  role: "Full-stack engineer",
+  role: "Independent software developer",
   url: "https://samuelburke.dev",
   // TODO(samuel): confirm the public email address.
   email: "hello@samuelburke.dev",

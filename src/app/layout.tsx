@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: `${site.name} · ${site.role}`,
   description:
-    "Samuel Burke is a full-stack engineer and founder of Burke Systems. He built ShiftView, a scheduling and time-clock app for retail and fulfillment teams.",
+    "Samuel Burke, independent software developer and founder of Burke Systems. Builds products end to end, from design to deployment, including ShiftView, a scheduling and time-clock app for retail and fulfillment teams.",
   openGraph: { title: site.name, description: `${site.role}. Builder of ShiftView.`, url: site.url, type: "website" },
 };
 
