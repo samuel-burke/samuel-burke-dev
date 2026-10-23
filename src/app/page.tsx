@@ -18,7 +18,7 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
     body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
   },
   {
-    when: "2024 – now",
+    when: "Fall 2024 – now",
     title: "Fulfillment department supervisor · Lowe’s",
     body: "I manage the largest fulfillment team in the district, in Wake Forest, NC. I worked up from loader to supervisor in just over a year, through building materials sales and Pro Services commercial accounts. The scheduling and timekeeping problems here are what ShiftView was built to solve.",
   },
