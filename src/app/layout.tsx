@@ -50,6 +50,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${schibsted.variable} ${plexSans.variable} ${plexMono.variable} dark`}
     >
+      <head>
+        {/* Runs before first paint: the logo draws in once per session, so later loads mark it as seen. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{sessionStorage.getItem("sb-cut")?document.documentElement.classList.add("sb-seen"):sessionStorage.setItem("sb-cut","1")}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
