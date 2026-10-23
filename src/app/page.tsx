@@ -240,7 +240,7 @@ export default function Home() {
               Say hello
             </p>
             <p className="mb-5 max-w-[48ch] text-muted-foreground">
-              Open to full-stack and product engineering roles. Email is the fastest way to reach me.
+              I’m open to software development roles. Email is the fastest way to reach me.
             </p>
             <CopyEmail />
           </section>
