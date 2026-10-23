@@ -58,19 +58,22 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero: the whole first screen is who I am and what I do. About starts below the fold. */}
+      {/* Hero: the whole first screen is who I am and what I do. About starts below the fold.
+          Its four lines rise in once on load (hero-in), the only entrance animation on the site. */}
       <section
         aria-label="Introduction"
         className="mx-auto flex min-h-[calc(100svh-81px)] max-w-[1200px] flex-col justify-center px-5 pb-20 pt-12 lg:px-12"
       >
-        <p className="mb-4 text-xl text-muted-foreground lg:text-2xl">Hi, I’m</p>
-        <h1 className="mb-6 font-display text-[clamp(3.5rem,11vw,8.5rem)] font-extrabold leading-[0.9] tracking-[-0.035em]">
+        <p className="mb-4 text-xl text-muted-foreground motion-safe:animate-[hero-in_600ms_var(--ease)_both] lg:text-2xl">
+          Hi, I’m
+        </p>
+        <h1 className="mb-6 font-display text-[clamp(3.5rem,11vw,8.5rem)] font-extrabold leading-[0.9] tracking-[-0.035em] motion-safe:animate-[hero-in_600ms_var(--ease)_both] [animation-delay:80ms]">
           {site.name}
         </h1>
-        <p className="max-w-[34ch] text-xl text-balance lg:text-[1.75rem] lg:leading-snug">
+        <p className="max-w-[34ch] text-xl text-balance motion-safe:animate-[hero-in_600ms_var(--ease)_both] [animation-delay:200ms] lg:text-[1.75rem] lg:leading-snug">
           {site.role} building products end to end, from design to deployment.
         </p>
-        <p className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+        <p className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-[15px] motion-safe:animate-[hero-in_600ms_var(--ease)_both] [animation-delay:320ms]">
           <a href="#work">See my work ↓</a>
           <a href={site.github}>GitHub</a>
           <a href={site.linkedin}>LinkedIn</a>
@@ -90,7 +93,7 @@ export default function Home() {
         </div>
 
         <main className="min-w-0 pb-12 lg:col-span-8">
-          <section aria-labelledby="about-h" id="about" className="min-h-svh scroll-mt-8 lg:pt-24">
+          <section aria-labelledby="about-h" id="about" className="scroll-mt-8 lg:pt-24">
             <SectionHeading id="about-h">About</SectionHeading>
             <div className="max-w-[62ch] space-y-4">
               <p>
@@ -109,7 +112,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="work-h" id="work" className="min-h-svh scroll-mt-8 pt-24">
+          <section aria-labelledby="work-h" id="work" className="scroll-mt-8 pt-24">
             <SectionHeading id="work-h">Recent work</SectionHeading>
 
             <article>
@@ -191,7 +194,7 @@ export default function Home() {
             <p className="mt-16 text-[15px] text-muted-foreground">More projects are on the way.</p>
           </section>
 
-          <section aria-labelledby="exp-h" id="experience" className="min-h-svh scroll-mt-8 pt-24">
+          <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">
             <SectionHeading id="exp-h">Experience</SectionHeading>
             <div className="space-y-10">
               {experience.map((item) => (
@@ -208,7 +211,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="contact-h" id="contact" className="min-h-svh scroll-mt-8 pt-24">
+          <section aria-labelledby="contact-h" id="contact" className="scroll-mt-8 pt-24">
             <SectionHeading id="contact-h">Contact</SectionHeading>
             <p className="mb-3 font-display text-[clamp(2rem,4.5vw,2.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em]">
               Say hello

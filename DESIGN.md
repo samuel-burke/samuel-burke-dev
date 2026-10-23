@@ -52,7 +52,6 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 
 - 4px base. Use Tailwind's default steps.
 - The first screen is the hero and nothing else: “Hi, I’m”, the name, one line on who I am and what I do, and links. About starts below the fold (Samuel, Oct 23).
-- Every section is at least one screen tall (`min-h-svh`), on desktop and phones.
 - Desktop (≥1024px), below the hero: 12 columns, max width 1200px, 48px gutter. Left column (4) is sticky and holds the small name, the section nav and links; right column (8) scrolls.
 - A top bar holds the logo (left) and search and theme (right) over a full-width 1px `border` line, at every width. It scrolls away; the intro below it is sticky. Below 1024px everything stacks: hero, about, work, experience, contact.
 - Sections are separated by 96px of space and one hairline rule above each section heading (added Oct 22 so sections read as chapters on phones). No boxes, and no other rules.
@@ -81,6 +80,8 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 | fast | 120ms | Hover, underline, focus |
 | base | 200ms | Palette open, nav marker |
 | slow | 650–950ms | The logo moment only |
+
+**Hero entrance.** On load, the hero’s four lines fade up 12px in sequence (`hero-in`, 600ms each, 80ms apart; done by about 0.9s). Once, never on scroll, skipped under `prefers-reduced-motion` (Samuel asked for it, Oct 23). No other section animates in.
 
 **The signature moment.** On the first visit of a session the S outline traces into the solid B and the cut fills (done by about 1s; `logo-trace`, `logo-fill`). The B itself doesn't move. It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It never blocks content and is skipped under `prefers-reduced-motion`.
 
