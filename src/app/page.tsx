@@ -6,7 +6,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Shot } from "@/components/shot";
 import { site } from "@/lib/site";
 
-const experience: { when: string; title: React.ReactNode; body: string }[] = [
+// Bold lead-ins, then what was learned or done. Course details follow NC State's catalog (csc.ncsu.edu).
+const experience: { when: string; title: React.ReactNode; body: string; points?: [string, string][] }[] = [
   {
     when: "Fall 2026 – now",
     title: (
@@ -20,11 +21,31 @@ const experience: { when: string; title: React.ReactNode; body: string }[] = [
     when: "Fall 2024",
     title: "B.S. Computer Science · NC State University",
     body: "North Carolina State University, Raleigh.",
+    points: [
+      [
+        "Software Engineering.",
+        "Worked on a team to evolve and maintain a large existing codebase: requirements and user stories, design patterns, REST APIs, databases, automated test plans, code inspections, and security and privacy.",
+      ],
+      [
+        "Data Structures and Algorithms.",
+        "Implemented lists, trees, hash maps, heaps and graphs in Java, and analyzed the time and space cost of recursive and iterative algorithms.",
+      ],
+      [
+        "Senior Design.",
+        "Built software for an industry sponsor on a student team over a full semester, with the sponsor as client and mentor.",
+      ],
+    ],
   },
   {
     when: "Summer 2022",
     title: "QA engineering intern · ZenGRC",
     body: "Wrote end-to-end tests for the QA team on ZenGRC, a governance, risk and compliance platform.",
+    points: [
+      ["Test automation.", "Turned user flows into automated end-to-end tests for a large web app."],
+      ["Finding edge cases.", "Read requirements and features the way a user would, to find where they break."],
+      ["Bug reports.", "Wrote reproducible reports that developers could act on without a follow-up."],
+      ["Working in a team.", "Shipped inside an existing codebase with code review and a release process."],
+    ],
   },
 ];
 
@@ -198,6 +219,15 @@ export default function Home() {
                   <div className="max-w-[56ch]">
                     <h3 className="mb-1.5 text-[17px] font-semibold">{item.title}</h3>
                     <p className="text-muted-foreground">{item.body}</p>
+                    {item.points && (
+                      <ul className="mt-3 space-y-2 text-muted-foreground">
+                        {item.points.map(([lead, text]) => (
+                          <li key={lead}>
+                            <strong className="font-semibold text-foreground">{lead}</strong> {text}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               ))}
