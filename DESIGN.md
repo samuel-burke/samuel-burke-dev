@@ -63,8 +63,8 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 | --- | --- | --- |
 | `LogoMark` | `components/logo-mark.tsx` | The B on its own, no tile, in `foreground`. The signature moment (see Motion) |
 | `SectionNav` | `components/section-nav.tsx` | Active section gets a 28px rule before the label |
-| `CommandMenu` | `components/command-menu.tsx` | Trigger is a 36px square, 1px `border`, Lucide search icon, same as the theme toggle (Samuel picked two icon squares, Oct 22). ⌘K / Ctrl+K / `/`. Navigate and Actions groups |
-| `ThemeToggle` | `components/theme-toggle.tsx` | 36px square, 1px `border`, Lucide sun / moon. Sits right of the search square |
+| `CommandMenu` | `components/command-menu.tsx` | Trigger is a 200×36 search field on `surface` with a ⌘K key, icon-only square below 640px (Samuel brought the ⌘K field back, Oct 23). Hidden Easter-egg commands: “clock in”, “sudo hire samuel”, “engrave”; they only appear once typed. ⌘K / Ctrl+K / `/`. Navigate and Actions groups |
+| `ThemeToggle` | `components/theme-toggle.tsx` | 36px square, 1px `border`, Lucide sun / moon. Sits right of the search field |
 | `CopyEmail` | `components/copy-email.tsx` | Copies, shows “Copied”, announces via `aria-live` |
 | `Shot` | `app/page.tsx` | Theme-aware screenshot pair |
 | shadcn `Dialog`, `Command` | `components/ui/` | Re-themed: no shadow, 1px border, backdrop dim |
