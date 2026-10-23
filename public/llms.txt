@@ -9,7 +9,7 @@
 
 ## Background
 
-- Founder, Burke Systems (2026–now)
+- Founder, Burke Systems (Fall 2026–now)
 - B.S. Computer Science, NC State University (Fall 2024)
 - QA engineering intern, ZenGRC (Summer 2022): wrote end-to-end tests for the QA team
 

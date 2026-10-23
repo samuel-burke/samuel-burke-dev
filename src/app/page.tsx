@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 const experience: { when: string; title: React.ReactNode; body: string }[] = [
   {
-    when: "2026 – now",
+    when: "Fall 2026 – now",
     title: (
       <>
         Founder · <a href="https://burke.systems">Burke Systems</a>
