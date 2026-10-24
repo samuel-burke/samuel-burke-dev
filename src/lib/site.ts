@@ -6,7 +6,7 @@ export const site = {
   email: "hello@samuelburke.dev",
   github: "https://github.com/samuel-burke",
   linkedin: "https://www.linkedin.com/in/samuel-burke-nc",
-  // TODO(samuel): placeholder until the Cal.com account exists; this link 404s until then.
+  // Not shown anywhere yet (Samuel, Oct 24): add it back to Contact and the command menu once the Cal.com account exists.
   calendar: "https://cal.com/samuelburke",
   repo: "https://github.com/samuel-burke/samuel-burke-dev",
 };
