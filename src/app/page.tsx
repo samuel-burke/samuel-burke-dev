@@ -247,6 +247,9 @@ export default function Home() {
               I’m open to software development roles. Email is the fastest way to reach me.
             </p>
             <CopyEmail />
+            <p className="mt-4 text-[15px]">
+              <a href={site.calendar}>Or book a call ↗</a>
+            </p>
           </section>
 
           <footer className="mt-20 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-border pt-5 text-sm text-muted-foreground">

@@ -145,6 +145,12 @@ export function CommandMenu() {
                   Copy email <Hint>action</Hint>
                 </CommandItem>
                 <CommandItem
+                  keywords={["calendar", "meeting", "schedule", "cal.com"]}
+                  onSelect={() => run(() => window.open(site.calendar, "_blank"))}
+                >
+                  Book a call <Hint>link</Hint>
+                </CommandItem>
+                <CommandItem
                   keywords={["dark", "light", "mode"]}
                   onSelect={() => run(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}
                 >
