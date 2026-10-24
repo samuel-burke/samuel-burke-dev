@@ -101,30 +101,68 @@ export function CommandMenu() {
                 </CommandGroup>
               )}
               <CommandGroup heading="Navigate">
-                <CommandItem onSelect={() => run(() => go("about"))}>
+                <CommandItem keywords={["bio", "who", "burke systems"]} onSelect={() => run(() => go("about"))}>
                   About <Hint>section</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => go("work"))}>
+                <CommandItem
+                  keywords={["projects", "portfolio", "shiftview", "scheduling", "time clock"]}
+                  onSelect={() => run(() => go("work"))}
+                >
                   Work: ShiftView <Hint>section</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => go("experience"))}>
+                <CommandItem
+                  keywords={[
+                    "resume",
+                    "skills",
+                    "jobs",
+                    "education",
+                    "nc state",
+                    "degree",
+                    "lowe’s",
+                    "lowes",
+                    "zengrc",
+                    "internship",
+                  ]}
+                  onSelect={() => run(() => go("experience"))}
+                >
                   Experience <Hint>section</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => go("contact"))}>
+                <CommandItem keywords={["email", "hire", "reach", "hello"]} onSelect={() => run(() => go("contact"))}>
                   Contact <Hint>section</Hint>
+                </CommandItem>
+                <CommandItem
+                  keywords={["architecture", "security", "ci/cd", "tests", "playwright", "supabase", "next.js"]}
+                  onSelect={() => run(() => window.location.assign(new URL("work/shiftview/", window.location.href)))}
+                >
+                  ShiftView case study <Hint>page</Hint>
                 </CommandItem>
               </CommandGroup>
               <CommandGroup heading="Actions">
-                <CommandItem onSelect={() => run(() => navigator.clipboard?.writeText(site.email))}>
+                <CommandItem
+                  keywords={["contact", "mail"]}
+                  onSelect={() => run(() => navigator.clipboard?.writeText(site.email))}
+                >
                   Copy email <Hint>action</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}>
+                <CommandItem
+                  keywords={["dark", "light", "mode"]}
+                  onSelect={() => run(() => setTheme(resolvedTheme === "dark" ? "light" : "dark"))}
+                >
                   Toggle theme <Hint>action</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => window.open("https://shiftview.app", "_blank"))}>
+                <CommandItem
+                  keywords={["demo", "live"]}
+                  onSelect={() => run(() => window.open("https://shiftview.app", "_blank"))}
+                >
                   Open ShiftView <Hint>link</Hint>
                 </CommandItem>
-                <CommandItem onSelect={() => run(() => window.open(site.repo, "_blank"))}>
+                <CommandItem keywords={["code"]} onSelect={() => run(() => window.open(site.github, "_blank"))}>
+                  GitHub <Hint>link</Hint>
+                </CommandItem>
+                <CommandItem keywords={["profile"]} onSelect={() => run(() => window.open(site.linkedin, "_blank"))}>
+                  LinkedIn <Hint>link</Hint>
+                </CommandItem>
+                <CommandItem keywords={["repo", "code"]} onSelect={() => run(() => window.open(site.repo, "_blank"))}>
                   View this site’s source <Hint>link</Hint>
                 </CommandItem>
               </CommandGroup>

@@ -52,7 +52,7 @@ All text pairs pass WCAG AA. Tokens live in `src/app/globals.css`; never hard-co
 
 - 4px base. Use Tailwind's default steps.
 - Desktop (≥1024px): 12 columns, max width 1200px, 48px gutter. Left column (5) is sticky and holds the intro (“Hi, I’m”, name, role, one line), the section nav and links; right column (7) scrolls. The hero is being reworked (Samuel, Oct 23); a full-screen name hero was tried and removed.
-- A top bar holds the logo (left) and search and theme (right) over a full-width 1px `border` line, at every width. It scrolls away; the intro below it is sticky. Below 1024px everything stacks: intro, about, work, experience, contact.
+- A top bar holds the logo (left) and search and theme (right). On desktop it sits over a full-width 1px `border` line and scrolls away; the intro below it is sticky. Below 1024px everything stacks (intro, about, work, experience, contact), and a row of section links sits under the top bar, pinned to the top of the screen, carrying the 1px line and underlining the current section.
 - Sections are separated by 96px of space and one hairline rule above each section heading (added Oct 22 so sections read as chapters on phones). No boxes, and no other rules.
 - One radius: `rounded-ui` (6px).
 - No elevation. Separate with a border or `surface`.

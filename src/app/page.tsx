@@ -15,7 +15,7 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
         Founder · <a href="https://burke.systems">Burke Systems ↗</a>
       </>
     ),
-    body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham. Designed, built and shipped ShiftView.",
+    body: "Custom web apps, automation and consulting for small teams in Raleigh-Durham, alongside my full-time job at Lowe’s. Designed, built and shipped ShiftView.",
   },
   {
     when: "Summer 2024 – now",
@@ -25,7 +25,7 @@ const experience: { when: string; title: React.ReactNode; body: string; points?:
   {
     when: "Fall 2024",
     title: "B.S. Computer Science · NC State University",
-    body: "North Carolina State University, Raleigh.",
+    body: "Completed fall 2024 at North Carolina State University, Raleigh.",
     points: [
       [
         "Software Engineering.",
@@ -73,9 +73,9 @@ function SectionHeading({
 export default function Home() {
   return (
     <>
-      {/* Top bar: the logo and the two controls over a full-width hairline. */}
+      {/* Top bar: the logo and the two controls over a full-width hairline. Below lg the section row under it carries the line. */}
       <header className="mx-auto max-w-[1200px] px-5 lg:px-12">
-        <div className="flex items-center justify-between border-b border-border py-5">
+        <div className="flex items-center justify-between py-5 lg:border-b lg:border-border">
           <LogoMark className="h-10 w-auto shrink-0" />
           <div className="flex items-center gap-2">
             <CommandMenu />
@@ -83,6 +83,7 @@ export default function Home() {
           </div>
         </div>
       </header>
+      <SectionNav variant="bar" />
 
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 px-5 lg:grid-cols-12 lg:gap-16 lg:px-12">
         {/* Intro. Its four lines rise in once on load (hero-in), the only entrance animation on the site. */}
@@ -107,7 +108,7 @@ export default function Home() {
         </div>
 
         <main className="min-w-0 pb-12 lg:col-span-7">
-          <section aria-labelledby="about-h" id="about" className="scroll-mt-8 pt-16 lg:pt-14">
+          <section aria-labelledby="about-h" id="about" className="lg:scroll-mt-8 pt-16 lg:pt-14">
             {/* On desktop the top bar's line already sits just above, so About skips its own. */}
             <SectionHeading id="about-h" className="lg:border-t-0 lg:pt-0">
               About
@@ -129,7 +130,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="work-h" id="work" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="work-h" id="work" className="lg:scroll-mt-8 pt-20">
             <SectionHeading id="work-h">Recent work</SectionHeading>
 
             <article>
@@ -209,15 +210,13 @@ export default function Home() {
                 <a href="work/shiftview/">Read the case study: architecture, security and CI/CD →</a>
               </p>
             </article>
-
-            <p className="mt-16 text-[15px] text-muted-foreground">More projects are on the way.</p>
           </section>
 
-          <section aria-labelledby="exp-h" id="experience" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="exp-h" id="experience" className="lg:scroll-mt-8 pt-20">
             <SectionHeading id="exp-h">Experience</SectionHeading>
             <div className="space-y-10">
               {experience.map((item) => (
-                <div key={item.when} className="grid gap-1 sm:grid-cols-[128px_1fr] sm:gap-4">
+                <div key={item.when} className="grid gap-1 sm:grid-cols-[144px_1fr] sm:gap-4">
                   <span className="font-mono text-[13px] leading-[1.9] text-muted-foreground tabular-nums">
                     {item.when}
                   </span>
@@ -239,7 +238,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section aria-labelledby="contact-h" id="contact" className="scroll-mt-8 pt-24">
+          <section aria-labelledby="contact-h" id="contact" className="lg:scroll-mt-8 pt-20">
             <SectionHeading id="contact-h">Contact</SectionHeading>
             <p className="mb-3 font-display text-[clamp(2rem,4.5vw,2.75rem)] font-extrabold leading-[1.05] tracking-[-0.03em]">
               Say hello
@@ -250,7 +249,7 @@ export default function Home() {
             <CopyEmail />
           </section>
 
-          <footer className="mt-24 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-border pt-5 text-sm text-muted-foreground">
+          <footer className="mt-20 flex flex-wrap gap-x-5 gap-y-1.5 border-t border-border pt-5 text-sm text-muted-foreground">
             <span>Built with Next.js, Tailwind and shadcn/ui</span>
             <a href={site.repo}>Source on GitHub ↗</a>
           </footer>

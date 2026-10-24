@@ -1,4 +1,5 @@
-// Theme-aware screenshot: shows the dark capture in dark mode and the light one in light mode.
+// Theme-aware screenshot: shows the dark capture in dark mode and the light one in light mode. Both are lazy, so the
+// hidden one is never downloaded.
 // `base` is the relative path to the site root, so the same images work from nested pages.
 export function Shot({
   name,
@@ -26,6 +27,8 @@ export function Shot({
         alt={alt}
         width={width}
         height={height}
+        loading="lazy"
+        decoding="async"
         className={`hidden dark:block ${frame}`}
       />
       <img
@@ -33,6 +36,8 @@ export function Shot({
         alt={alt}
         width={width}
         height={height}
+        loading="lazy"
+        decoding="async"
         className={`block dark:hidden ${frame}`}
       />
     </>

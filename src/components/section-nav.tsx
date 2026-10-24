@@ -10,7 +10,7 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
-export function SectionNav() {
+function useActiveSection() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
@@ -33,6 +33,38 @@ export function SectionNav() {
       window.removeEventListener("resize", update);
     };
   }, []);
+
+  return active;
+}
+
+// "column": the list in the sticky intro on desktop. "bar": a row pinned to the top of the screen below lg, where the
+// intro column doesn't stick.
+export function SectionNav({ variant = "column" }: { variant?: "column" | "bar" }) {
+  const active = useActiveSection();
+
+  if (variant === "bar") {
+    return (
+      <nav aria-label="Sections" className="sticky top-0 z-40 bg-background lg:hidden">
+        <div className="mx-auto flex max-w-[1200px] gap-5 overflow-x-auto border-b border-border px-5 text-[15px]">
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`#${s.id}`}
+              aria-current={active === s.id ? "true" : undefined}
+              className={cn(
+                "-mb-px shrink-0 border-b py-2.5 no-underline transition-colors duration-[120ms]",
+                active === s.id
+                  ? "border-foreground text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav aria-label="Sections" className="mt-12 hidden gap-1.5 lg:grid">
