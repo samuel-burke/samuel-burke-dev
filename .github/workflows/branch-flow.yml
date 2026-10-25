@@ -28,7 +28,7 @@ jobs:
               exit 0
             fi
             # The label marks an owner-approved exception. It does not replace review or branch protection.
-            if [[ "$HEAD_REF" =~ ^hotfix/[a-z0-9][a-z0-9-]*$ ]] && [[ ",$PR_LABELS," == *,emergency-hotfix,* ]]; then
+            if [[ "$HEAD_REF" =~ ^hotfix/[a-z0-9][a-z0-9.-]*$ ]] && [[ ",$PR_LABELS," == *,emergency-hotfix,* ]]; then
               echo "Emergency hotfix route; owner review still required."
               exit 0
             fi
@@ -38,7 +38,7 @@ jobs:
 
           if [[ "$BASE_REF" == "dev" ]]; then
             # dependabot/* is Dependabot's own naming.
-            if [[ "$HEAD_REF" =~ ^(feature|bugfix|refactor|chore|docs|test|hotfix)/[a-z0-9][a-z0-9-]*$ ]] \
+            if [[ "$HEAD_REF" =~ ^(feature|bugfix|refactor|chore|docs|test|hotfix)/[a-z0-9][a-z0-9.-]*$ ]] \
               || [[ "$HEAD_REF" =~ ^dependabot/ ]]; then
               echo "Task branch -> dev."
               exit 0
