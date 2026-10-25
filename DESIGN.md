@@ -80,9 +80,7 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 | base | 200ms | Palette open, nav marker |
 | slow | 700ms | The logo moment only |
 
-**Intro entrance.** On load, the intro’s four lines fade up 12px in sequence (`hero-in`, 600ms each, 80ms apart; done by about 0.9s). Once, never on scroll, skipped under `prefers-reduced-motion` (Samuel asked for it, Oct 23). No other section animates in.
-
-**The signature moment.** On the first visit of a session the B, with its S cutout, draws in from left to right over 700ms (`logo-cut`, clip-path). It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It never blocks content and is skipped under `prefers-reduced-motion`.
+**The signature moment.** On the first visit of a session the B, with its S cutout, draws in from left to right over 700ms (`logo-cut`, clip-path), after a 300ms pause so the page settles first. It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It is the only animation on the page; nothing else animates in, including the intro (Samuel, Oct 25). Hover and focus feedback stay. It never blocks content and is skipped under `prefers-reduced-motion`.
 
 Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, loaders, custom cursors, anything that loops on the home page.
 

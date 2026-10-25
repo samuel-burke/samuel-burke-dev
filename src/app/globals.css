@@ -87,16 +87,14 @@ body {
 }
 
 /* The logo draw-in plays from the server-rendered HTML, so it starts with the first paint, not after hydration.
-   The head script adds .sb-seen on later loads in the same session; "engrave" adds .logo-replay to play it again. */
-.logo-draw { animation: logo-cut 700ms var(--ease) both; }
-.sb-seen .logo-draw { animation: none; }
-.sb-seen .logo-draw.logo-replay { animation: logo-cut 700ms var(--ease) both; }
-
-@keyframes hero-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
+   It waits 300ms so the page settles first; the B stays hidden until then.
+   The head script adds .sb-seen on later loads in the same session; "engrave" adds .logo-replay to play it again, with no wait.
+   Under reduced motion none of this runs and the B is simply there. */
+@media (prefers-reduced-motion: no-preference) {
+  .logo-draw { animation: logo-cut 700ms var(--ease) 300ms both; }
+  .sb-seen .logo-draw { animation: none; }
+  .sb-seen .logo-draw.logo-replay { animation: logo-cut 700ms var(--ease) both; }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -11,7 +11,7 @@ export function LogoMark({ className }: { className?: string }) {
 
   // Once the first draw-in has finished, mark it seen so a client-side navigation doesn't play it again.
   useEffect(() => {
-    const timer = setTimeout(() => document.documentElement.classList.add("sb-seen"), 800);
+    const timer = setTimeout(() => document.documentElement.classList.add("sb-seen"), 1100);
     return () => clearTimeout(timer);
   }, []);
 
