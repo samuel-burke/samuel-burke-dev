@@ -8,7 +8,7 @@ This is Samuel Burke's personal portfolio, maintained by Samuel with coding agen
 | --- | --- | --- |
 | `main` | Production. Only release PRs from `dev` (or an owner-approved `hotfix/*`) | https://samuel-burke-dev.pages.dev, automatically on merge |
 | `dev` | Integration and staging. Receives task PRs | https://dev.samuel-burke-dev.pages.dev (Cloudflare preview) |
-| `feature/*`, `bugfix/*`, `chore/*`, `docs/*`, `test/*`, `refactor/*`, `claude/*` | Short-lived task branches from `dev` | A Cloudflare preview per branch |
+| `feature/*`, `bugfix/*`, `chore/*`, `docs/*`, `test/*`, `refactor/*` | Short-lived task branches from `dev` | A Cloudflare preview per branch |
 
 1. Branch from the latest `dev`. Never commit to `dev` or `main` directly.
 2. Open a PR into `dev` using the PR template. Fill in the verification table with checks you actually ran.

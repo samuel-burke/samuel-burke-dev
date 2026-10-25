@@ -37,14 +37,13 @@ jobs:
           fi
 
           if [[ "$BASE_REF" == "dev" ]]; then
-            # claude/* is the branch name Claude Code sessions are assigned; it follows the same rules as the rest.
             # dependabot/* is Dependabot's own naming.
-            if [[ "$HEAD_REF" =~ ^(feature|bugfix|refactor|chore|docs|test|hotfix|claude)/[a-z0-9][a-z0-9-]*$ ]] \
+            if [[ "$HEAD_REF" =~ ^(feature|bugfix|refactor|chore|docs|test|hotfix)/[a-z0-9][a-z0-9-]*$ ]] \
               || [[ "$HEAD_REF" =~ ^dependabot/ ]]; then
               echo "Task branch -> dev."
               exit 0
             fi
-            echo "::error::PRs into dev must come from a short-lived task branch (feature/, bugfix/, chore/, docs/, test/, refactor/, hotfix/, claude/)."
+            echo "::error::PRs into dev must come from a short-lived task branch (feature/, bugfix/, chore/, docs/, test/, refactor/, hotfix/)."
             exit 1
           fi
 

@@ -10,7 +10,7 @@ Until now, work merged straight into `main`, which deploys to production, and th
 
 ## Decision
 
-- **Branches:** task branches → `dev` (staging) → `main` (production) through PRs. Claude Code sessions use `claude/*` branch names, which count as task branches.
+- **Branches:** task branches → `dev` (staging) → `main` (production) through PRs. Task branches are named by type and purpose (`feature/*`, `bugfix/*`, `chore/*`, `docs/*`, `test/*`, `refactor/*`), never by tool or session.
 - **CI:** one GitHub Actions workflow (`ci.yml`) with four jobs, which are the required checks: *Lint and typecheck*, *Unit and integration tests*, *Build and E2E*, *Dependency audit*. Plus *Validate branch flow* (`branch-flow.yml`).
 - **Tests:** Vitest for unit tests (pure logic, node) and integration tests (real components with cmdk, Radix and next-themes in jsdom); Playwright for E2E against the built static export, served the way Cloudflare Pages serves it, with axe for automated WCAG 2.2 AA checks.
 - **Coverage:** 85% lines, 80% branches, 85% functions and statements over `src/lib` and `src/components`, enforced in CI. Pages are server components and are covered by E2E instead.

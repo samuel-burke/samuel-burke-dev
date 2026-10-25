@@ -42,7 +42,7 @@ Then look at the result in a browser at 375px and 1440px, dark and light. Report
 
 - **Owner and reviewer:** Samuel (`@samuel-burke`), sole maintainer. Agents never merge or deploy; Samuel merges.
 - **Users:** recruiters and hiring managers reading the site for 30 to 90 seconds. No accounts, no forms, no personal data collected by the site.
-- **Branches:** `main` is production, `dev` is staging, task branches open PRs into `dev`, and releases are `dev` → `main` PRs. Claude Code sessions are assigned `claude/*` branch names; treat them as task branches (the branch-flow check allows them into `dev`).
+- **Branches:** `main` is production, `dev` is staging, task branches open PRs into `dev`, and releases are `dev` → `main` PRs. Name task branches by type and purpose (`feature/command-menu-search`, `bugfix/safari-export`), never by tool or session; the branch-flow check rejects anything else, including `claude/*`.
 - **Deploys:** Cloudflare Pages' Git integration is the only deploy mechanism. **Merging into `main` deploys to production automatically** (https://samuel-burke-dev.pages.dev). Every other branch gets a preview deployment; `dev`'s preview is the staging site. GitHub Actions runs checks only and never deploys. See `docs/ci-cd.md`.
 - **Tests:** unit tests in `tests/unit` (pure logic), integration tests in `tests/integration` (real components with cmdk, Radix and next-themes in jsdom), E2E in `tests/e2e` (Playwright and axe against the built export, served like Cloudflare serves it). See `docs/testing.md` for the acceptance-criteria map.
 - **Not applicable here:** database, migrations, API contracts, auth, multi-tenancy, payments (Sections 6–7 apply only if a server feature is ever added, which needs Samuel's approval first).
@@ -114,7 +114,6 @@ Then look at the result in a browser at 375px and 1440px, dark and light. Report
 | `chore/short-description` | Maintenance, tooling, dependencies | `dev` | `dev` |
 | `docs/short-description` | Documentation | `dev` | `dev` |
 | `test/short-description` | Test-only work | `dev` | `dev` |
-| `claude/session-name` | Branch assigned to a Claude Code session; same rules as `chore/*` | `dev` | `dev` |
 | `hotfix/short-description` | Exceptional urgent production repair | `main` | See hotfix policy below |
 
 - Name branches by intent; keep them short-lived and narrowly scoped.

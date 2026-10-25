@@ -5,7 +5,7 @@
 <!-- What a visitor will see, and the key implementation changes. Keep the scope clear. -->
 
 ## Type
-- [ ] Task PR (`feature/*`, `bugfix/*`, `chore/*`, `docs/*`, `test/*`, `refactor/*`, `claude/*`) → `dev`
+- [ ] Task PR (`feature/*`, `bugfix/*`, `chore/*`, `docs/*`, `test/*`, `refactor/*`) → `dev`
 - [ ] Release PR: `dev` → `main` (**merging deploys to production**)
 - [ ] Owner-approved emergency hotfix: `hotfix/*` → `main` (label `emergency-hotfix`)
 
