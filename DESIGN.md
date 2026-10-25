@@ -75,12 +75,13 @@ Prefer prose to cards. A project is told as a title, a summary, a meta line, a s
 
 | Token | Value | Used for |
 | --- | --- | --- |
-| `--ease` | cubic-bezier(0.2, 0, 0, 1) | Everything |
+| `--ease` | cubic-bezier(0.2, 0, 0, 1) | Everything except the carve |
+| `--ease-carve` | cubic-bezier(0.45, 0, 0.25, 1) | The logo carve only (eases in and out, like a tool cutting) |
 | fast | 120ms | Hover, underline, focus |
 | base | 200ms | Palette open, nav marker |
-| slow | 700ms | The logo moment only |
+| slow | 750ms | The logo moment only |
 
-**The signature moment.** On the first visit of a session the B, with its S cutout, draws in from left to right over 700ms (`logo-cut`, clip-path), after a 300ms pause so the page settles first. It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23). It is the only animation on the page; nothing else animates in, including the intro (Samuel, Oct 25). Hover and focus feedback stay. It never blocks content and is skipped under `prefers-reduced-motion`.
+**The signature moment.** On the first visit of a session the B shows with only its two holes cut. After a 500ms pause, so the page settles first, the S's curve carves from the top hole down to the bottom one over 750ms (`logo-carve`: a stroke clipped to the S), leaving the real logo (Samuel picked it from a preview, Oct 25). It plays on first load only: no hover replay, no timer (Samuel's call, Oct 23); the hidden “engrave” command replays it. It is the only animation on the page; nothing else animates in, including the intro (Samuel, Oct 25). Hover and focus feedback stay. The B is readable from the first frame, and under `prefers-reduced-motion` the finished logo simply shows.
 
 Not allowed: fade-up or slide-in on scroll, parallax, smooth-scroll libraries, loaders, custom cursors, anything that loops on the home page.
 
