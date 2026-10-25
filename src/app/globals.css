@@ -14,6 +14,7 @@
   --ring: var(--foreground);
   --destructive: #B4261E;
   --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-carve: cubic-bezier(0.45, 0, 0.25, 1);
 }
 
 .dark {
@@ -81,22 +82,32 @@ body {
   }
 }
 
-@keyframes logo-cut {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+/* The logo carve plays from the server-rendered HTML, so it starts with the first paint, not after hydration.
+   A plain B (only the two holes cut) covers the real logo; after 500ms a thick background-colored stroke, clipped to the
+   S, carves the S's curve, then both layers drop away and the real even-odd B is left.
+   The head script adds .sb-seen on later loads in the same session; "engrave" adds .logo-replay to play it again, with
+   no wait. Under reduced motion none of this runs and the B is simply there. */
+.logo-holes, .logo-carve { opacity: 0; }
+.logo-carve { stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+@keyframes logo-hold {
+  from, 99.9% { opacity: 1; }
+  to { opacity: 0; }
 }
 
-/* The logo draw-in plays from the server-rendered HTML, so it starts with the first paint, not after hydration.
-   The head script adds .sb-seen on later loads in the same session; "engrave" adds .logo-replay to play it again. */
-.logo-draw { animation: logo-cut 700ms var(--ease) both; }
-.sb-seen .logo-draw { animation: none; }
-.sb-seen .logo-draw.logo-replay { animation: logo-cut 700ms var(--ease) both; }
-
-@keyframes hero-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
+@keyframes logo-carve {
+  from { opacity: 1; stroke-dashoffset: 1; }
+  99.9% { opacity: 1; stroke-dashoffset: 0; }
+  to { opacity: 0; stroke-dashoffset: 0; }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .logo-holes { animation: logo-hold 1250ms linear both; }
+  .logo-carve { animation: logo-carve 750ms var(--ease-carve) 500ms both; }
+  .sb-seen .logo-holes, .sb-seen .logo-carve { animation: none; }
+  .sb-seen .logo-replay .logo-holes { animation: logo-hold 750ms linear both; }
+  .sb-seen .logo-replay .logo-carve { animation: logo-carve 750ms var(--ease-carve) both; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
