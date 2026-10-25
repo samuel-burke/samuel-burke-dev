@@ -105,7 +105,13 @@ function ArchitectureDiagram() {
   const line = "stroke-muted-foreground";
   return (
     <figure className="my-8">
-      <div className="overflow-x-auto rounded-ui border border-border p-4">
+      {/* Focusable so keyboard users can scroll the diagram sideways on narrow screens. */}
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label="Architecture diagram"
+        className="overflow-x-auto rounded-ui border border-border p-4"
+      >
         <svg viewBox="0 0 670 330" className="min-w-[580px]" role="img" aria-labelledby="arch-title arch-desc">
           <title id="arch-title">ShiftView architecture</title>
           <desc id="arch-desc">

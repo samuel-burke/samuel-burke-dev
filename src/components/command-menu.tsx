@@ -12,6 +12,11 @@ function go(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
 }
 
+// noopener: the opened site gets no window.opener handle back to this tab.
+function openTab(url: string) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 function Hint({ children }: { children: React.ReactNode }) {
   return <span className="font-mono text-xs text-muted-foreground">{children}</span>;
 }
@@ -20,7 +25,7 @@ function Hint({ children }: { children: React.ReactNode }) {
 const EGGS = ["clock in", "sudo hire samuel", "engrave"] as const;
 type Egg = (typeof EGGS)[number];
 
-function eggFor(query: string): Egg | undefined {
+export function eggFor(query: string): Egg | undefined {
   const q = query.trim().toLowerCase().replace(/\s+/g, " ");
   return EGGS.find((egg) => q.length >= Math.min(5, egg.length) && egg.startsWith(q));
 }
@@ -77,13 +82,13 @@ export function CommandMenu() {
         type="button"
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
-        aria-label="Search"
         title="Search (⌘K)"
         className="flex h-9 w-9 items-center justify-center gap-2 rounded-ui border border-border bg-surface text-[14.5px] text-muted-foreground transition-colors duration-[120ms] hover:border-foreground hover:text-foreground sm:w-[200px] sm:justify-start sm:pl-[11px] sm:pr-1.5"
       >
         <Search aria-hidden className="size-4 shrink-0" />
-        <span className="hidden flex-1 text-left sm:inline">Search</span>
-        <kbd className="hidden rounded-[4px] border border-border px-[5px] font-mono text-[11.5px] sm:inline">⌘K</kbd>
+        {/* The visible word is the accessible name too (WCAG 2.5.3); below sm it stays for screen readers only. */}
+        <span className="sr-only sm:not-sr-only sm:flex-1 sm:text-left">Search</span>
+        <kbd aria-hidden className="hidden rounded-[4px] border border-border px-[5px] font-mono text-[11.5px] sm:inline">⌘K</kbd>
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
@@ -152,17 +157,17 @@ export function CommandMenu() {
                 </CommandItem>
                 <CommandItem
                   keywords={["demo", "live"]}
-                  onSelect={() => run(() => window.open("https://shiftview.app", "_blank"))}
+                  onSelect={() => run(() => openTab("https://shiftview.app"))}
                 >
                   Open ShiftView <Hint>link</Hint>
                 </CommandItem>
-                <CommandItem keywords={["code"]} onSelect={() => run(() => window.open(site.github, "_blank"))}>
+                <CommandItem keywords={["code"]} onSelect={() => run(() => openTab(site.github))}>
                   GitHub <Hint>link</Hint>
                 </CommandItem>
-                <CommandItem keywords={["profile"]} onSelect={() => run(() => window.open(site.linkedin, "_blank"))}>
+                <CommandItem keywords={["profile"]} onSelect={() => run(() => openTab(site.linkedin))}>
                   LinkedIn <Hint>link</Hint>
                 </CommandItem>
-                <CommandItem keywords={["repo", "code"]} onSelect={() => run(() => window.open(site.repo, "_blank"))}>
+                <CommandItem keywords={["repo", "code"]} onSelect={() => run(() => openTab(site.repo))}>
                   View this site’s source <Hint>link</Hint>
                 </CommandItem>
               </CommandGroup>

@@ -1,0 +1,51 @@
+name: Branch flow
+
+on:
+  pull_request:
+    branches: [dev, main]
+    types: [opened, reopened, synchronize, edited, labeled, unlabeled]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-branch-flow:
+    name: Validate branch flow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source and target branches
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "$BASE_REF" == "main" ]]; then
+            if [[ "$HEAD_REF" == "dev" ]]; then
+              echo "Release PR: dev -> main."
+              exit 0
+            fi
+            # The label marks an owner-approved exception. It does not replace review or branch protection.
+            if [[ "$HEAD_REF" =~ ^hotfix/[a-z0-9][a-z0-9.-]*$ ]] && [[ ",$PR_LABELS," == *,emergency-hotfix,* ]]; then
+              echo "Emergency hotfix route; owner review still required."
+              exit 0
+            fi
+            echo "::error::PRs into main must come from dev, or from a hotfix/* branch labelled emergency-hotfix."
+            exit 1
+          fi
+
+          if [[ "$BASE_REF" == "dev" ]]; then
+            # dependabot/* is Dependabot's own naming.
+            if [[ "$HEAD_REF" =~ ^(feature|bugfix|refactor|chore|docs|test|hotfix)/[a-z0-9][a-z0-9.-]*$ ]] \
+              || [[ "$HEAD_REF" =~ ^dependabot/ ]]; then
+              echo "Task branch -> dev."
+              exit 0
+            fi
+            echo "::error::PRs into dev must come from a short-lived task branch (feature/, bugfix/, chore/, docs/, test/, refactor/, hotfix/)."
+            exit 1
+          fi
+
+          echo "::error::Unexpected target branch: $BASE_REF"
+          exit 1
