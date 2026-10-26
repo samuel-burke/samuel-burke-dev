@@ -1,13 +1,11 @@
 # samuelburke.dev
 
-<!-- CI badges go here once ci.yml has run on each branch (dev after the first merge into dev, main after the first release):
 [![CI · dev](https://github.com/samuel-burke/samuel-burke-dev/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/samuel-burke/samuel-burke-dev/actions/workflows/ci.yml?query=branch%3Adev)
 [![CI · main](https://github.com/samuel-burke/samuel-burke-dev/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/samuel-burke/samuel-burke-dev/actions/workflows/ci.yml?query=branch%3Amain)
--->
 
 Samuel Burke's portfolio: who I am, what I've built (ShiftView), and how to reach me. Next.js 16, Tailwind v4 and shadcn/ui, statically exported to Cloudflare Pages.
 
-Live: https://samuel-burke-dev.pages.dev
+Live: https://samuelburke.dev
 
 The site is built with coding agents against a written spec. Start with:
 
