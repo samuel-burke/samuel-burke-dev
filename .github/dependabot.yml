@@ -10,6 +10,11 @@ updates:
       # One PR for routine minor/patch bumps instead of one per package.
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # typescript-eslint (via eslint-config-next) supports TypeScript <6.1.0 only.
+      # Remove once its peer range covers newer versions.
+      - dependency-name: typescript
+        versions: [">=6.1.0"]
   - package-ecosystem: github-actions
     directory: /
     target-branch: dev
