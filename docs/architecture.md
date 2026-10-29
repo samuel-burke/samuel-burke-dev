@@ -12,7 +12,7 @@ samuelburke.dev is a static site. There is no server, database, API or login; ev
 
 | Component | Where | Role | Trust and data | Failure behavior |
 | --- | --- | --- | --- | --- |
-| Pages | `src/app/page.tsx`, `src/app/work/shiftview/page.tsx` | Server components, prerendered to HTML at build | Static content only | Build fails, nothing deploys |
+| Pages | `src/app/page.tsx`, `src/app/work/shiftview/page.tsx`, `src/app/work/study-squad/page.tsx` | Server components, prerendered to HTML at build | Static content only | Build fails, nothing deploys |
 | Layout | `src/app/layout.tsx` | Fonts, metadata, theme provider, the head script that marks the logo carve as seen | Writes `sb-cut` to sessionStorage | Script is wrapped in try/catch; without storage the carve just replays |
 | Client components | `src/components/*` | Command menu (⌘K), copy email, theme toggle, section nav, logo | Theme in localStorage (`theme`) | Copy email falls back to selecting the text; links work without JS |
 | UI primitives | `src/components/ui/*` | shadcn Dialog and Command (Radix, cmdk) re-themed to DESIGN.md tokens | n/a | n/a |

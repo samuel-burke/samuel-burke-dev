@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 // WCAG 2.2 AA rules axe can check automatically, on each page, in both themes, at both viewports (see projects).
-for (const path of ["/", "/work/shiftview/"]) {
+for (const path of ["/", "/work/shiftview/", "/work/study-squad/"]) {
   for (const theme of ["dark", "light"]) {
     test(`${path} has no axe violations in ${theme} mode`, async ({ page }) => {
       await page.addInitScript((t) => localStorage.setItem("theme", t), theme);
