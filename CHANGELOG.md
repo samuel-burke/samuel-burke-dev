@@ -4,6 +4,9 @@ Notable changes to samuelburke.dev. Entries describe what actually shipped; date
 
 ## [Unreleased]
 
+### Added
+- Study Squad, a group study timer for Root communities, under Recent work, with a case study at `/work/study-squad/` (architecture, security, CI/CD and testing, key decisions) and a ⌘K entry.
+
 ## [0.1.0] - 2026-10-25
 
 First tracked release. The site itself has been live since 2026-10-23; this release adds the engineering workflow around it.

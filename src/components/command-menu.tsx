@@ -110,10 +110,10 @@ export function CommandMenu() {
                   About <Hint>section</Hint>
                 </CommandItem>
                 <CommandItem
-                  keywords={["projects", "portfolio", "shiftview", "scheduling", "time clock"]}
+                  keywords={["projects", "portfolio", "shiftview", "scheduling", "time clock", "study squad"]}
                   onSelect={() => run(() => go("work"))}
                 >
-                  Work: ShiftView <Hint>section</Hint>
+                  Work: ShiftView, Study Squad <Hint>section</Hint>
                 </CommandItem>
                 <CommandItem
                   keywords={[
@@ -140,6 +140,12 @@ export function CommandMenu() {
                   onSelect={() => run(() => window.location.assign(new URL("work/shiftview/", window.location.href)))}
                 >
                   ShiftView case study <Hint>page</Hint>
+                </CommandItem>
+                <CommandItem
+                  keywords={["study timer", "pomodoro", "root", "sqlite", "protobuf"]}
+                  onSelect={() => run(() => window.location.assign(new URL("work/study-squad/", window.location.href)))}
+                >
+                  Study Squad case study <Hint>page</Hint>
                 </CommandItem>
               </CommandGroup>
               <CommandGroup heading="Actions">

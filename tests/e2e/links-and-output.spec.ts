@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test } from "@playwright/test";
 
-const pages = ["/", "/work/shiftview/"];
+const pages = ["/", "/work/shiftview/", "/work/study-squad/"];
 
 for (const path of pages) {
   test(`${path}: every link is safe and every same-site link resolves`, async ({ page, request, baseURL }) => {
