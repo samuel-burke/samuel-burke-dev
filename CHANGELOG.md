@@ -4,8 +4,15 @@ Notable changes to samuelburke.dev. Entries describe what actually shipped; date
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-29
+
+Adds Study Squad as a second project.
+
 ### Added
 - Study Squad, a group study timer for Root communities, under Recent work, with a case study at `/work/study-squad/` (architecture, security, CI/CD and testing, key decisions) and a ⌘K entry.
+
+### Changed
+- TypeScript 6.0.3 (from 5.9.3), a development dependency only.
 
 ## [0.1.0] - 2026-10-25
 
