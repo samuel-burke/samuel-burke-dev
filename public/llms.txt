@@ -5,6 +5,7 @@
 ## Work
 
 - [ShiftView](https://shiftview.app): Scheduling and a time clock for retail and fulfillment teams. Built solo to solve the scheduling and timekeeping problems Samuel faced as a retail manager, with Next.js 16, React 19, Supabase and TypeScript. Deterministic auto-scheduler, real-time coverage, two-layer security (API route handlers plus row-level security), 1,600+ automated tests. Source: https://github.com/samuel-burke/shiftview. Case study (architecture, auth and security, CI/CD): https://samuelburke.dev/work/shiftview/
+- Study Squad (in development): A group study timer for Root communities: a shared pomodoro timer, a live board of who is focusing on what, and a light game layer (XP, streaks, a weekly community boss). Built solo with TypeScript, React, the Root SDK and SQLite. The server stores only when a cycle started, so every client derives the same countdown; all rules live in a pure TypeScript engine shared by the server and an in-browser demo. Source: https://github.com/samuel-burke/study-squad-root-app. Case study: https://samuelburke.dev/work/study-squad/
 
 ## Background
 

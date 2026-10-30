@@ -23,22 +23,27 @@ test("home renders every section with no errors", async ({ page, baseURL }) => {
   expect(problems).toEqual([]);
 });
 
-test("case study renders with no errors and links back home", async ({ page, baseURL }) => {
-  const problems = watch(page, new URL(baseURL!).origin);
-  await page.goto("/work/shiftview/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("ShiftView");
-  await page.waitForLoadState("networkidle");
-  expect(problems).toEqual([]);
+for (const [slug, title] of [
+  ["shiftview", "ShiftView"],
+  ["study-squad", "Study Squad"],
+]) {
+  test(`${title} case study renders with no errors and links back home`, async ({ page, baseURL }) => {
+    const problems = watch(page, new URL(baseURL!).origin);
+    await page.goto(`/work/${slug}/`);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(title);
+    await page.waitForLoadState("networkidle");
+    expect(problems).toEqual([]);
 
-  await page.getByRole("link", { name: "Samuel Burke, home" }).click();
-  await expect(page).toHaveURL(new URL("/", baseURL).href);
-});
+    await page.getByRole("link", { name: "Samuel Burke, home" }).click();
+    await expect(page).toHaveURL(new URL("/", baseURL).href);
+  });
 
-test("the home page links to the case study", async ({ page }) => {
-  await page.goto("/");
-  await page.getByRole("link", { name: /Read the case study/ }).click();
-  await expect(page).toHaveURL(/\/work\/shiftview\/$/);
-});
+  test(`the home page links to the ${title} case study`, async ({ page }) => {
+    await page.goto("/");
+    await page.locator(`a[href="work/${slug}/"]`).click();
+    await expect(page).toHaveURL(new RegExp(`/work/${slug}/$`));
+  });
+}
 
 test("a path without its trailing slash redirects like Cloudflare Pages", async ({ page }) => {
   const res = await page.goto("/work/shiftview");
@@ -72,6 +77,16 @@ test("⌘K finds the case study by keyword and opens it", async ({ page }) => {
   await expect(dialog.getByRole("option").first()).toHaveText(/ShiftView case study/);
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\/work\/shiftview\/$/);
+});
+
+test("⌘K finds the Study Squad case study by keyword", async ({ page }) => {
+  await page.goto("/");
+  await page.keyboard.press("ControlOrMeta+k");
+  await page.keyboard.type("pomodoro");
+  const dialog = page.getByRole("dialog");
+  await expect(dialog.getByRole("option").first()).toHaveText(/Study Squad case study/);
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/work\/study-squad\/$/);
 });
 
 test("the theme toggle switches to light and survives a reload", async ({ page }) => {

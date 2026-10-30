@@ -38,6 +38,16 @@ describe("Shot", () => {
     }
   });
 
+  it("renders one framed capture from another project's folder when the app has a single look", () => {
+    render(<Shot name="room" alt="Room" width={1280} height={900} project="study-squad" themed={false} base="../../" />);
+    const imgs = screen.getAllByRole("img", { name: "Room" }) as HTMLImageElement[];
+    expect(imgs).toHaveLength(1);
+    expect(imgs[0].getAttribute("src")).toBe("../../img/study-squad/room.webp");
+    expect(imgs[0].getAttribute("loading")).toBe("lazy");
+    expect(imgs[0].className).toContain("border");
+    expect(imgs[0].className).not.toContain("dark:");
+  });
+
   it("drops the frame for bare phone captures", () => {
     render(<Shot name="phone" alt="Phone" width={400} height={800} bare />);
     for (const img of screen.getAllByRole("img")) expect(img.className).not.toContain("border");

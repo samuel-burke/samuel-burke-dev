@@ -60,7 +60,7 @@ describe("CommandMenu", () => {
     expect(options()[0]).toBe("Experience section");
     await user.clear(screen.getByRole("combobox"));
     await user.keyboard("scheduling");
-    expect(options()[0]).toBe("Work: ShiftView section");
+    expect(options()[0]).toBe("Work: ShiftView, Study Squad section");
 
     await user.clear(screen.getByRole("combobox"));
     await user.keyboard("zzzz");

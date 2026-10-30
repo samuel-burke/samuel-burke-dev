@@ -210,6 +210,87 @@ export default function Home() {
                 <a href="work/shiftview/">Read the case study: architecture, security and CI/CD →</a>
               </p>
             </article>
+
+            <article className="mt-20 border-t border-border pt-10">
+              <h3 className="mb-3 font-display text-[clamp(2.25rem,5vw,3.25rem)] font-extrabold leading-none tracking-[-0.03em]">
+                Study Squad
+              </h3>
+              <p className="mb-3 max-w-[58ch] text-lg">
+                A group study timer for Root communities. Everyone in the room shares one pomodoro timer, sees who’s
+                focusing on what, and goes on break at the same moment. I built it alone, from the timer engine to the
+                UI.
+              </p>
+              <p className="mb-8 text-[15px] text-muted-foreground">
+                In development · TypeScript, React, Root SDK, SQLite ·{" "}
+                <a href="https://github.com/samuel-burke/study-squad-root-app">Code ↗</a>
+              </p>
+
+              <figure className="mb-10">
+                <Shot
+                  name="room-desktop"
+                  project="study-squad"
+                  themed={false}
+                  alt="Study Squad focus room: a shared 25-minute timer, eight members’ cards with their goals and streaks, the weekly boss and a 1.5x combo."
+                  width={1280}
+                  height={900}
+                />
+                <figcaption className="mt-3 text-[15px] text-muted-foreground">
+                  The focus room: the shared timer, who’s working on what, and the weekly boss the room fights together.
+                </figcaption>
+              </figure>
+
+              <div className="max-w-[62ch] space-y-5">
+                <p>
+                  <strong className="font-semibold">A timer that can’t drift.</strong> The server stores only when the
+                  cycle started and which preset it uses. Every screen works out the countdown from that and a measured
+                  clock offset, so a late update or a phone with the wrong time never puts two people out of step.
+                </p>
+                <p>
+                  <strong className="font-semibold">One engine, tested without Root.</strong> Every rule lives in a pure
+                  TypeScript engine behind interfaces for storage, time and messaging. The server plugs in SQLite and
+                  Root’s APIs; a browser demo plugs in memory and simulated members, so the demo runs the same rules as
+                  the real app.
+                </p>
+                <p>
+                  <strong className="font-semibold">Private by design.</strong> The server takes identity only from the
+                  signed-in Root connection, removes private goals before room state leaves it, and lets members delete
+                  their own data from the app.
+                </p>
+                <p>
+                  <strong className="font-semibold">Checked on every change.</strong> GitHub Actions runs formatting,
+                  lint, typecheck, Vitest with coverage, a build, and Playwright on desktop and phone that fails on any
+                  console error. CodeQL and dependency review run on every pull request.
+                </p>
+              </div>
+
+              <figure className="mt-10">
+                <div className="grid max-w-[520px] grid-cols-2 gap-4">
+                  <Shot
+                    name="room-mobile"
+                    project="study-squad"
+                    themed={false}
+                    alt="Study Squad on a phone: the room timer at 14:30 and the list of who’s focusing now."
+                    width={390}
+                    height={844}
+                  />
+                  <Shot
+                    name="start-session-mobile"
+                    project="study-squad"
+                    themed={false}
+                    alt="The start session sheet on a phone: a goal, a private goals switch, and a choice of room or solo timer."
+                    width={390}
+                    height={844}
+                  />
+                </div>
+                <figcaption className="mt-3 text-[15px] text-muted-foreground">
+                  Starting a session: set a goal, keep it private if you like, and join the room timer or run your own.
+                </figcaption>
+              </figure>
+
+              <p className="mt-8">
+                <a href="work/study-squad/">Read the case study: timer design, privacy and testing →</a>
+              </p>
+            </article>
           </section>
 
           <section aria-labelledby="exp-h" id="experience" className="lg:scroll-mt-8 pt-20">
