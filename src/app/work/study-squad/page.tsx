@@ -437,6 +437,12 @@ export default function StudySquadCaseStudy() {
               in a test community on each release would catch the next one before members do.
             </p>
             <p>
+              <strong className="font-semibold">Build it as a standalone app.</strong> Living inside Root means only
+              Root users can find it, and its store has no link I can share. The rules already run without Root, since
+              the engine sits behind interfaces and powers the browser demo, so a standalone version would mostly need
+              its own sign-in, hosting and database.
+            </p>
+            <p>
               <strong className="font-semibold">More than one room.</strong> One Root server process serves one
               community, so there’s one room per install. Study groups inside a big community will want their own.
             </p>
