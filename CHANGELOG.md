@@ -4,6 +4,10 @@ Notable changes to samuelburke.dev. Entries describe what actually shipped; date
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-05
+
+Study Squad is live.
+
 ### Changed
 - Study Squad is live on Root's App Store: the home entry and case study say so, the case study covers the deploy-to-Root pipeline and the feedback relay, and the screenshots are new, with light and dark versions.
 
