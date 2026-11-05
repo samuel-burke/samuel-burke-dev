@@ -7,12 +7,14 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: `Study Squad case study · ${site.name}`,
   description:
-    "How Samuel Burke built Study Squad: a group study timer for Root communities with a server-owned timer that can't drift and one engine shared by the server and a browser demo.",
+    "How Samuel Burke built and shipped Study Squad: a group study timer on Root's App Store, with a server-owned timer that can't drift, one engine shared by the server and a browser demo, and CI that deploys every release to Root.",
 };
 
 // This page lives at /work/study-squad/, two folders below the site root.
 const base = "../../";
 const code = "https://github.com/samuel-burke/study-squad-root-app";
+// Root's App Store lives inside its desktop app and has no public per-app links, so the app's own site stands in.
+const website = "https://samuel-burke.github.io/study-squad-root-app/";
 
 const toc = [
   { id: "what", label: "What it does" },
@@ -27,10 +29,10 @@ const features = [
   {
     title: "Focusing together",
     items: [
-      "A shared room timer, 25/5 or 50/10, in rounds of four with a long break",
+      "A shared room timer, 25/5, 50/10 or custom, in rounds of four with a long break",
       "Solo timers from 5 to 180 minutes that still show on the board",
-      "A live board of who’s focusing, on what, and how long is left",
-      "Private goals that show only as “Focusing”",
+      "A live board of who’s focusing, on what, how long is left, and who’s in voice",
+      "A goals list to edit and reorder; private goals show only as “Focusing”",
     ],
   },
   {
@@ -45,19 +47,19 @@ const features = [
   {
     title: "Game layer",
     items: [
-      "XP and levels with a daily cap, and a combo for finishing rounds together",
+      "XP and levels, and a combo for finishing rounds together",
       "A weekly community boss whose strength fits its name",
-      "Weekly quests, a weekly leaderboard members can hide from, and badges",
+      "Weekly quests, medals to collect, and a leaderboard members can hide from",
       "Streaks with one free freeze a week and no public “you lost it” posts",
     ],
   },
   {
     title: "Community",
     items: [
-      "Daily recap, busy-room and milestone posts to a channel",
-      "Admin settings through Root’s own settings screen",
-      "Member profiles that never show goals or focus history",
-      "Delete my data, in the app, with no request to anyone",
+      "Daily recap, busy-room and milestone posts, and a squad bot that cheers people on",
+      "A Join voice button for the community’s voice channel",
+      "Light and dark themes that follow Root’s setting live",
+      "Send feedback to me, and Delete my data, from inside the app",
     ],
   },
 ];
@@ -68,7 +70,8 @@ const stack = [
   { layer: "Domain", tech: "core: pure TypeScript timer math, XP, streaks, boss, quests, badges and the StudyRoomEngine" },
   { layer: "Server", tech: "Root app server on Node 22: request handlers, broadcasts, channel posts, a scheduled recap job" },
   { layer: "Data", tech: "SQLite through knex with bound parameters and migrations; an in-memory store for the demo" },
-  { layer: "Testing and CI", tech: "Vitest, Testing Library, Playwright; GitHub Actions, CodeQL, dependency review, Dependabot" },
+  { layer: "Feedback relay", tech: "A small Vercel function that turns in-app feedback into issues in a private GitHub repo" },
+  { layer: "Testing and CI/CD", tech: "Vitest, Testing Library, Playwright; GitHub Actions deploys to Root; CodeQL, dependency review, Dependabot" },
 ];
 
 const ci = [
@@ -76,7 +79,8 @@ const ci = [
   { job: "e2e", what: "Playwright against the demo build on a desktop and a phone profile, failing on any console error" },
   { job: "codeql", what: "GitHub’s static analysis for security issues, also run weekly" },
   { job: "dependency-review", what: "Pull requests only: blocks one that adds a dependency with a known high-severity advisory" },
-  { job: "package", what: "Pushes to main only, after verify and e2e pass: builds the Root package and keeps it as an artifact" },
+  { job: "deploy", what: "Main only, after verify and e2e pass: regenerates the Protobuf code from scratch, builds, packages, uploads to Root and tags root-v<version>" },
+  { job: "website", what: "Publishes the app’s home, support and privacy pages to GitHub Pages when they change on main" },
 ];
 
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
@@ -190,11 +194,12 @@ export default function StudySquadCaseStudy() {
         </h1>
         <p className="mb-5 max-w-[60ch] text-xl text-balance">
           A group study timer for Root communities, like a quiet library where you can see everyone else working. I
-          designed and built it alone, from the timer engine to the UI.
+          designed, built and shipped it alone, from the timer engine to the release pipeline. It’s live on Root’s
+          App Store.
         </p>
         <p className="font-mono text-[13px] text-muted-foreground">
-          Solo · Product, design and engineering · In development · TypeScript, React, Root SDK, SQLite ·{" "}
-          <a href={code}>Code ↗</a>
+          Solo · Product, design and engineering · Live on Root · TypeScript, React, Root SDK, SQLite ·{" "}
+          <a href={website}>Website ↗</a> · <a href={code}>Code ↗</a>
         </p>
       </div>
 
@@ -202,11 +207,10 @@ export default function StudySquadCaseStudy() {
         <Shot
           base={base}
           project="study-squad"
-          themed={false}
           name="room-desktop"
-          alt="Study Squad focus room: a shared 25-minute timer, eight members’ cards with their goals and streaks, the weekly boss and a 1.5x combo."
-          width={1280}
-          height={900}
+          alt="Study Squad focus room: a shared 25-minute timer, eight members’ cards with their goals, streaks and ranks, the weekly boss and a 1.5x combo."
+          width={1600}
+          height={1000}
         />
       </figure>
 
@@ -269,24 +273,23 @@ export default function StudySquadCaseStudy() {
                 <Shot
                   base={base}
                   project="study-squad"
-                  themed={false}
                   name="room-mobile"
-                  alt="Study Squad on a phone: the room timer at 14:30 and the list of who’s focusing now."
-                  width={390}
-                  height={844}
+                  alt="Study Squad on a phone: the room timer at 14:32, the weekly boss, a 1.5x combo and who’s focusing now."
+                  width={600}
+                  height={1298}
                 />
                 <Shot
                   base={base}
                   project="study-squad"
-                  themed={false}
-                  name="start-session-mobile"
-                  alt="The start session sheet on a phone: a goal, a private goals switch, and a choice of room or solo timer."
-                  width={390}
-                  height={844}
+                  name="break-moment-mobile"
+                  alt="The break moment on a phone: six finished together, 42 XP earned, a 12-day streak, damage to the boss and “Did you finish your goal?”"
+                  width={600}
+                  height={1298}
                 />
               </div>
               <figcaption className="mt-3 text-[15px] text-muted-foreground">
-                The same client on a phone. Playwright checks both layouts on every change.
+                The same client on a phone. It follows Root’s light or dark theme, and Playwright checks the phone
+                layout on every change.
               </figcaption>
             </figure>
           </Section>
@@ -324,13 +327,25 @@ export default function StudySquadCaseStudy() {
                 view and post in a channel. Admin settings use Root’s own settings screen, so there’s no admin UI of
                 mine to secure.
               </li>
+              <li>
+                <strong className="font-semibold">Feedback without shipping a secret.</strong> Root has no secret
+                storage, so the package carries only a relay address and a shared key. The relay, a small function on
+                Vercel, holds a GitHub token that can only write issues in one private repo, and takes at most 50 notes a
+                day. A leaked key could post a few notes but read nothing.
+              </li>
+              <li>
+                <strong className="font-semibold">Deploy credentials stay in CI.</strong> The Root upload token lives
+                only in GitHub’s Actions secrets, and only the deploy job, which runs on{" "}
+                <code className="font-mono text-[15px]">main</code>, reads it.
+              </li>
             </ul>
           </Section>
 
           <Section id="cicd" title="CI/CD and testing">
             <p>
               Every push to <code className="font-mono text-[15px]">main</code> or{" "}
-              <code className="font-mono text-[15px]">dev</code> and every pull request runs these GitHub Actions jobs:
+              <code className="font-mono text-[15px]">dev</code> and every pull request is checked. Merges to{" "}
+              <code className="font-mono text-[15px]">main</code> also ship:
             </p>
             <dl className="divide-y divide-border border-y border-border">
               {ci.map((row) => (
@@ -347,6 +362,12 @@ export default function StudySquadCaseStudy() {
               in-memory store and SQLite, so the demo can’t quietly drift from the real database. An integration test
               fans broadcasts out to several clients through the wire format and checks they all see the same timer
               and the same break.
+            </p>
+            <p>
+              Shipping is a version bump and a merge. The deploy job reads the version from the manifest and skips any
+              version already tagged, because Root rejects a re-upload. It always regenerates the Protobuf code from
+              scratch, because stale generated code once crashed the app on Root. If an upload fails, running the job
+              again is safe.
             </p>
           </Section>
 
@@ -384,17 +405,25 @@ export default function StudySquadCaseStudy() {
                   The first version asked “Still there?” at a random point in a round. It interrupted the people who were
                   studying, and couldn’t reach anyone with their screen off, so it mostly punished the wrong people. I
                   replaced it with “Keep going?” during the cycle’s final long break: tap to roll into the next cycle,
-                  or be released when it ends with everything you earned. A forgotten timer stops after one cycle, and
-                  the daily XP cap bounds what it can earn.
+                  or be released when it ends with everything you earned. A forgotten timer stops after one cycle. That
+                  later let me remove the daily XP cap, which mostly punished long, honest study days.
                 </p>
               </Decision>
 
               <Decision title="Rewards that can’t be farmed">
                 <p>
-                  Focus XP pays for time, not task count, and goal XP pays once per goal, so unchecking and rechecking
-                  earns nothing. The combo counts people who finish the round, not people who joined in its last
-                  seconds. The leaderboard ranks focus minutes, and the podium badges only count once three members
-                  are ranked that week.
+                  Focus XP pays for time, not task count. Goal XP pays once per goal and only for the first five each
+                  day, so neither rechecking nor a stream of tiny goals earns more. The combo counts people who finish
+                  the round, not people who joined in its last seconds, and the podium badges only count once three
+                  members are ranked that week.
+                </p>
+              </Decision>
+
+              <Decision title="Days start at 4am">
+                <p>
+                  A new day starts at 4am in the community’s time zone, not midnight. A session at 1am still counts
+                  toward the day before, so late-night studiers keep their streak, goals and stats together. Clock-time
+                  features, like the recap’s post time, keep the real clock.
                 </p>
               </Decision>
             </div>
@@ -402,9 +431,10 @@ export default function StudySquadCaseStudy() {
 
           <Section id="change" title="What I’d change">
             <p>
-              <strong className="font-semibold">Run it in a live community.</strong> The server compiles against the
-              real Root SDK and the demo runs the real engine, but the app hasn’t yet run in a live Root community. That
-              needs a developer token and is the next step.
+              <strong className="font-semibold">Test against Root sooner.</strong> The shared engine and the demo caught
+              rule bugs, but not Root’s runtime. The daily recap failed on Root because scheduled jobs get their time as
+              a number, and stale generated code once crashed the app there. Both are fixed, but an automated smoke test
+              in a test community on each release would catch the next one before members do.
             </p>
             <p>
               <strong className="font-semibold">More than one room.</strong> One Root server process serves one
@@ -418,6 +448,7 @@ export default function StudySquadCaseStudy() {
           </Section>
 
           <div className="mt-20 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-6 text-[15px]">
+            <a href={website}>Visit the app’s site ↗</a>
             <a href={code}>Read the code ↗</a>
             <a href={`${base}#contact`}>Get in touch →</a>
           </div>

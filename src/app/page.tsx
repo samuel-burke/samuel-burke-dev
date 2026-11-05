@@ -218,10 +218,11 @@ export default function Home() {
               <p className="mb-3 max-w-[58ch] text-lg">
                 A group study timer for Root communities. Everyone in the room shares one pomodoro timer, sees who’s
                 focusing on what, and goes on break at the same moment. I built it alone, from the timer engine to the
-                UI.
+                UI, and it’s live on Root’s App Store.
               </p>
               <p className="mb-8 text-[15px] text-muted-foreground">
-                In development · TypeScript, React, Root SDK, SQLite ·{" "}
+                Live on Root · TypeScript, React, Root SDK, SQLite ·{" "}
+                <a href="https://samuel-burke.github.io/study-squad-root-app/">Website ↗</a> ·{" "}
                 <a href="https://github.com/samuel-burke/study-squad-root-app">Code ↗</a>
               </p>
 
@@ -229,10 +230,9 @@ export default function Home() {
                 <Shot
                   name="room-desktop"
                   project="study-squad"
-                  themed={false}
-                  alt="Study Squad focus room: a shared 25-minute timer, eight members’ cards with their goals and streaks, the weekly boss and a 1.5x combo."
-                  width={1280}
-                  height={900}
+                  alt="Study Squad focus room: a shared 25-minute timer, eight members’ cards with their goals, streaks and ranks, the weekly boss and a 1.5x combo."
+                  width={1600}
+                  height={1000}
                 />
                 <figcaption className="mt-3 text-[15px] text-muted-foreground">
                   The focus room: the shared timer, who’s working on what, and the weekly boss the room fights together.
@@ -257,9 +257,10 @@ export default function Home() {
                   their own data from the app.
                 </p>
                 <p>
-                  <strong className="font-semibold">Checked on every change.</strong> GitHub Actions runs formatting,
-                  lint, typecheck, Vitest with coverage, a build, and Playwright on desktop and phone that fails on any
-                  console error. CodeQL and dependency review run on every pull request.
+                  <strong className="font-semibold">Shipped by CI.</strong> Every change runs formatting, lint,
+                  typecheck, Vitest with coverage, a build, and Playwright on desktop and phone. A merge to main that
+                  passes builds the app, uploads it to Root and tags the version, so a release is a version bump and a
+                  merge.
                 </p>
               </div>
 
@@ -268,27 +269,26 @@ export default function Home() {
                   <Shot
                     name="room-mobile"
                     project="study-squad"
-                    themed={false}
-                    alt="Study Squad on a phone: the room timer at 14:30 and the list of who’s focusing now."
-                    width={390}
-                    height={844}
+                    alt="Study Squad on a phone: the room timer at 14:32, the weekly boss, a 1.5x combo and who’s focusing now."
+                    width={600}
+                    height={1298}
                   />
                   <Shot
-                    name="start-session-mobile"
+                    name="break-moment-mobile"
                     project="study-squad"
-                    themed={false}
-                    alt="The start session sheet on a phone: a goal, a private goals switch, and a choice of room or solo timer."
-                    width={390}
-                    height={844}
+                    alt="The break moment on a phone: six finished together, 42 XP earned, a 12-day streak, damage to the boss and “Did you finish your goal?”"
+                    width={600}
+                    height={1298}
                   />
                 </div>
                 <figcaption className="mt-3 text-[15px] text-muted-foreground">
-                  Starting a session: set a goal, keep it private if you like, and join the room timer or run your own.
+                  On a phone: the room mid-round, then the break every screen shows at the same moment. It follows
+                  Root’s light or dark theme.
                 </figcaption>
               </figure>
 
               <p className="mt-8">
-                <a href="work/study-squad/">Read the case study: timer design, privacy and testing →</a>
+                <a href="work/study-squad/">Read the case study: timer design, privacy and CI/CD →</a>
               </p>
             </article>
           </section>
