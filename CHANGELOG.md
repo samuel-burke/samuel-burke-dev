@@ -4,8 +4,13 @@ Notable changes to samuelburke.dev. Entries describe what actually shipped; date
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-05
+
+Study Squad is live.
+
 ### Changed
 - Study Squad is live on Root's App Store: the home entry and case study say so, the case study covers the deploy-to-Root pipeline and the feedback relay, and the screenshots are new, with light and dark versions.
+- Next.js 16.4.3 (from 16.4.2) and lucide-react 1.64.0 (from 1.61.0), plus development-only updates to eslint-config-next and @types/node.
 
 ## [0.2.0] - 2026-10-29
 
